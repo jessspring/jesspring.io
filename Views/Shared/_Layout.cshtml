@@ -1,0 +1,50 @@
+﻿<html>
+
+<head>
+    <title>jesspring.io</title>
+
+    <script src="/scripts/splash.js"></script>
+
+    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high" onload="fontLoaded()">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body class="pixelated container">
+    <header class="header scale3 flex justify-content-center">
+        <a href="https://jesspring.io">
+            <img class="center" src="/images/title.png">
+        </a>
+        <span id="splash-text" class="splash-text unselectable display-none"></span>
+    </header>
+
+    <main class="main pixel-font">
+        <content class="content flex">
+
+            @RenderBody()
+
+        </content>
+    </main>
+
+    <footer class="footer scale3 flex justify-content-center">
+        <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank">
+            <img src="/images/instagram.png">
+        </a>
+
+        <a class="icon" href="https://discord.gg/HMMpgw8TzA" target="_blank">
+            <img src="/images/discord.png">
+        </a>
+
+        <a class="icon" href="https://open.spotify.com/user/lolsville" target="_blank">
+            <img src="/images/spotify.png">
+        </a>
+
+        <a class="icon" href="https://github.com/jessspring" target="_blank">
+            <img src="/images/github.png">
+        </a>
+    </footer>
+</body>
+
+@RenderSection("Scripts", false)
+
+</html>

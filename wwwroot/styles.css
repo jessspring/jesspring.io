@@ -1,0 +1,225 @@
+html {
+    background-color: rgb(165, 0, 165);
+    font-family: 'PixelCraft', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.pixelated {
+    image-rendering: pixelated;
+}
+
+.scale3 {
+    zoom: 300%;
+}
+
+.header {
+    background-color: rgb(204, 0, 204);
+    background-image: url("images/top_dither.png");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    padding: 10px 0;
+}
+
+.footer {
+    background-color: rgb(127, 0, 127);
+    background-image: url("images/bottom_dither.png");
+    background-repeat: repeat-x;
+    background-position: top;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.main {
+    background-color: rgb(165, 0, 165);
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.icon {
+    padding: 0 2px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pixel-font {
+    font-family: 'PixelCraft', sans-serif;
+}
+
+.pixel-font-bold {
+    font-family: 'PixelCraft Bold', sans-serif;
+}
+
+.pixel-font-wide {
+    font-family: 'PixelCraft Bold Wide', sans-serif;
+}
+
+
+@keyframes splash-text {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 1.1
+    }
+}
+
+.splash-text {
+    font-family: 'PixelCraft', sans-serif;
+    position: absolute;
+    color: rgb(0, 255, 0);
+    text-shadow: 1px 1px rgb(0, 63, 0);
+    line-height: 0;
+    font-size: 0.75em;
+    translate: 105px 15px;
+    rotate: -20deg;
+    white-space: nowrap;
+    animation-name: splash-text;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.splash-text-bounce {
+}
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.display-none {
+    display: none;
+}
+
+@keyframes rainbow {
+    0% {
+        color: rgb(255, 0, 0);
+        text-shadow: rgb(63, 0, 0);
+    }
+
+    16.67% {
+        color: rgb(255, 255, 0);
+        text-shadow: rgb(63, 63, 0);
+    }
+
+    33.33% {
+        color: rgb(0, 255, 0);
+        text-shadow: rgb(0, 63, 0);
+    }
+
+    50% {
+        color: rgb(0, 255, 255);
+        text-shadow: rgb(0, 63, 63);
+    }
+
+    66.67% {
+        color: rgb(0, 0, 255);
+        text-shadow: rgb(0, 0, 63);
+    }
+
+    83.33% {
+        color: rgb(255, 0, 255);
+        text-shadow: rgb(63, 0, 63);
+    }
+
+    100% {
+        color: rgb(255, 0, 0);
+        text-shadow: rgb(63, 0, 0);
+    }
+}
+
+.splash-text-rainbow {
+    animation-name: splash-text, rainbow;
+    animation-duration: 0.5s, 3s;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.content {
+    max-width: 900px;
+    width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.card {
+    background-color: rgb(204, 0, 204);
+    box-shadow: rgb(63, 0, 63) 10px 10px;
+    padding: 10px;
+}
+
+.green-card {
+    background-color: rgb(0, 204, 0);
+    box-shadow: rgb(0, 63, 0) 10px 10px;
+}
+
+.yellow-card {
+    background-color: rgb(255, 255, 0);
+    box-shadow: rgb(63, 63, 0) 10px 10px;
+}
+
+.search-card {
+    width: 80%;
+}
+
+.search-container {
+    justify-content: space-between;
+    width: 100%;
+    margin-block-end: 30px;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.title-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.title-list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    row-gap: 20px;
+}
+
+.title-image-container {
+    display: flex;
+    flex-direction: row;
+}
