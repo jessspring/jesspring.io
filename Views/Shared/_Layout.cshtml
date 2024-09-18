@@ -1,4 +1,8 @@
-﻿<html>
+﻿@{
+    var contentClass = ViewData.ContainsKey("ContentClass") ? $"{ViewData["ContentClass"]}" : string.Empty;
+}
+
+<html>
 
 <head>
     <title>jesspring.io</title>
@@ -19,7 +23,7 @@
     </header>
 
     <main class="main pixel-font">
-        <content class="content flex">
+        <content class="content flex @contentClass">
 
             @RenderBody()
 
