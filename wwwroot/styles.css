@@ -94,6 +94,7 @@ body {
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    z-index: 100;
 }
 
 .unselectable {
