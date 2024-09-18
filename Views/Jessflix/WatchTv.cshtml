@@ -5,7 +5,9 @@
     ViewData["ContentClass"] = "content-large";
 }
 <div class="flex fd-column w-100 align-items-center">
-    <iframe src="https://vidsrc.xyz/embed/movie?tmdb=@Model" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
+    <div class="card stream-card">
+        <iframe id="stream-embed" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
+    </div>
 
     <div class="card title-card m-top-10">
         <img class="title-image" id="title-image" />
@@ -17,14 +19,23 @@
                 </div>
             </div>
             <div class="card yellow-card title-description" id="title-description"></div>
+            <div class="flex fd-row">
+                <select id="season-select" class="select tv-selects">
+                </select>
+
+                <select id="episode-select" class="select tv-selects">
+                </select>
+            </div>
         </div>
+
+
     </div>
 </div>
 
 @section Scripts {
     <script>
-        window.data = { movieId: "@Model" };
+        window.data = { tvId: "@Model" };
     </script>
 
-    <script src="/scripts/jessflix/watch.js"></script>
+    <script src="/scripts/jessflix/watchTv.js"></script>
 }

@@ -1,7 +1,7 @@
 let splashFontLoaded = false;
 let splashTextLoaded = false;
 
-document.fonts.onloadingdone = fontLoaded;
+document.fonts.addEventListener("loadingdone", fontLoaded);
 
 fetch("/text/splash.txt")
     .then(x => x.text())

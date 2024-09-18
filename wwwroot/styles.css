@@ -48,7 +48,7 @@ body {
 }
 
 .icon {
-    padding: 0 2px;
+    margin: 0 2px;
 }
 
 .container {
@@ -94,9 +94,6 @@ body {
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-.splash-text-bounce {
 }
 
 .unselectable {
@@ -168,8 +165,8 @@ body {
 }
 
 .content-large {
-    max-width: 1000px;
-    width: 1000px;
+    max-width: 960px;
+    width: 960px;
     margin: 0 auto;
     padding: 20px 0;
 }
@@ -364,4 +361,21 @@ a.button {
 
 .p-r-10 {
     padding-right: 10px;
+}
+
+.select {
+    font-family: 'PixelCraft', sans-serif;
+    font-size: 16px;
+    border: none;
+    border-top: 5px rgb(63, 63, 63) solid;
+    border-left: 5px rgb(63, 63, 63) solid;
+}
+
+.tv-selects {
+    width: 50%;
+    margin: 10px 0 0 10px;
+}
+
+.stream-card {
+    margin-bottom: 10px;
 }

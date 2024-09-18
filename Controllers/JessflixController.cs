@@ -11,7 +11,14 @@ namespace jesspring.io.Controllers
             return View();
         }
 
-        public IActionResult Watch(int id)
+        [HttpGet("[controller]/Watch/Movie/{id}")]
+        public IActionResult WatchMovie(int id)
+        {
+            return View(id);
+        }
+
+        [HttpGet("[controller]/Watch/TV/{id}")]
+        public IActionResult WatchTv(int id)
         {
             return View(id);
         }
