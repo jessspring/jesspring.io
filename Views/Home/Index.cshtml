@@ -3,4 +3,41 @@
     ViewData["Title"] = "jesspring.io";
 }
 
-@Html.ActionLink("Jessflix", nameof(JessflixController.Index), JessflixController.Name)
+<div class="flex fd-row w-100 gap-20">
+    <div class="flex fd-column w-50 gap-20">
+        <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+                Jessflix
+            </div>
+
+            <div class="card blue-card home-card flex">
+                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new {@class="button"})
+            </div>
+        </div>
+        <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+                Other stuff
+            </div>
+
+            <div class="card yellow-card home-card">
+                @* @Html.ActionLink("Stuff", nameof(JessflixController.Index), JessflixController.Name) *@
+            </div>
+        </div>
+    </div>
+
+    <div class="flex fd-column w-50 gap-20">
+        <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+                Gaymes
+            </div>
+
+            <div class="card green-card home-card">
+@*                 @Html.ActionLink("WallOS", nameof(JessflixController.Index), JessflixController.Name)
+                <br />
+                @Html.ActionLink("Sweeper Idle", nameof(JessflixController.Index), JessflixController.Name)
+                <br />
+                @Html.ActionLink("IdleDice", nameof(JessflixController.Index), JessflixController.Name) *@
+            </div>
+        </div>
+    </div>
+</div>
