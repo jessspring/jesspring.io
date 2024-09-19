@@ -343,6 +343,14 @@ a.button {
     font-size: 24px;
 }
 
+.font-size-3 {
+    font-size: 32px;
+}
+
+.font-size-4 {
+    font-size: 48px;
+}
+
 .title-name {
     text-shadow: rgba(255, 255, 255, 0.5) 1px 1px;
 }
@@ -379,4 +387,30 @@ a.button {
 
 .stream-card {
     margin-bottom: 10px;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+.home-card-title {
+    text-shadow: rgb(255, 255, 255) 3px 3px;
+    line-height: 1.2;
+    font-family: 'PixelCraft Bold', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
+    transform: translate(0, -20px);
+}
+
+.home-card-title-yellow {
+    color: rgb(223, 223, 0);
+    text-shadow: rgb(47, 47, 0) 4px 4px;
+}
+
+.home-card {
+    margin: 0 10px 10px 0;
 }

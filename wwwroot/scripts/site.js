@@ -84,6 +84,8 @@ function meow() {
         "meow_3",
         "meow_4",
         "meow_5",
+        "meow_6",
+        "meow_7",
     ];
 
     const meowAudios = meowFileNames.map(x => new Audio("/sounds/" + x + ".mp3"));
