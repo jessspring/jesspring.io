@@ -1,9 +1,13 @@
-﻿<html>
+﻿@{
+    var contentClass = ViewData.ContainsKey("ContentClass") ? $"{ViewData["ContentClass"]}" : string.Empty;
+}
+
+<html>
 
 <head>
     <title>jesspring.io</title>
 
-    <script src="/scripts/splash.js"></script>
+    <script src="/scripts/site.js"></script>
 
     <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high" onload="fontLoaded()">
     <link rel="stylesheet" href="/styles.css">
@@ -12,14 +16,14 @@
 
 <body class="pixelated container">
     <header class="header scale3 flex justify-content-center">
-        <a href="https://jesspring.io">
+        <a href="/">
             <img class="center" src="/images/title.png">
         </a>
         <span id="splash-text" class="splash-text unselectable display-none"></span>
     </header>
 
     <main class="main pixel-font">
-        <content class="content flex">
+        <content class="content flex @contentClass">
 
             @RenderBody()
 

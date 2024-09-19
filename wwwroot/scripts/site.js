@@ -1,7 +1,7 @@
 let splashFontLoaded = false;
 let splashTextLoaded = false;
 
-document.fonts.onloadingdone = fontLoaded;
+document.fonts.addEventListener("loadingdone", fontLoaded);
 
 fetch("/text/splash.txt")
     .then(x => x.text())
@@ -40,5 +40,58 @@ function setSplashWidth() {
     if (splashElement.clientWidth > 125) {
         const scale = 125 / splashElement.clientWidth;
         splashElement.style.transform = `scale(${scale})`;
+    }
+}
+
+let keyDownMemory = "0000000000";
+window.addEventListener("keydown", (event) => {
+    let code = "0";
+
+    switch (event.key) {
+        case "ArrowUp":
+            code = "1";
+            break;
+        case "ArrowDown":
+            code = "2";
+            break;
+        case "ArrowLeft":
+            code = "3";
+            break;
+        case "ArrowRight":
+            code = "4";
+            break;
+        case "b":
+        case "B":
+            code = "5";
+            break;
+        case "a":
+        case "A":
+            code = "6";
+            break;
+    }
+
+    keyDownMemory = (code + keyDownMemory).substring(0, 10);
+
+    if (keyDownMemory == "6543432211") {
+        meow();
+    }
+});
+
+function meow() {
+    const meowFileNames = [
+        "meow_1",
+        "meow_2",
+        "meow_3",
+        "meow_4",
+        "meow_5",
+        "meow_6",
+        "meow_7",
+    ];
+
+    const meowAudios = meowFileNames.map(x => new Audio("/sounds/" + x + ".mp3"));
+
+    for (let i = 0; i < 150; i++) {
+        const randomFile = meowAudios[Math.floor(Math.random() * meowAudios.length)];
+        setTimeout(() => randomFile.play(), Math.floor(Math.random() * 5000));
     }
 }
