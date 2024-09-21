@@ -1,31 +1,41 @@
 ﻿@using jesspring.io.Controllers
 @{
-    ViewData["Title"] = "jesspring.io";
+    ViewData["Title"] = "Jessflix";
 }
-<div class="flex fd-column w-100">
-    <form class="flex search-container" id="search-form" action="https://api.themoviedb.org/3/search/movie?api_key=710eae815b269abfbd23d6ca65580e55&query=">
-        <div class="card button-card search-type-container">
-            <div class="p-r-10">
-                <button id="movies-button" class="button button-blue" type="button">Movies</button>
+
+<div class="flex fd-column gap-20 align-items-center">
+    <div class="card flex w-fit">
+        <div class="font-size-4 home-card-title home-card-title-yellow">
+            Jessflix
+        </div>
+    </div>
+
+    <div class="flex fd-column w-100">
+        <form class="flex search-container" id="search-form" action="https://api.themoviedb.org/3/search/movie?api_key=710eae815b269abfbd23d6ca65580e55&query=">
+            <div class="card button-card search-type-container">
+                <div class="p-r-10">
+                    <button id="movies-button" class="button button-blue" type="button">Movies</button>
+                </div>
+                <div>
+                    <button id="tv-button" class="button button-yellow" type="button">TV shows</button>
+                </div>
+                <input id="search-type" name="type" type="text" class="display-none" />
             </div>
-            <div>
-                <button id="tv-button" class="button button-yellow" type="button">TV shows</button>
+
+            <div class="card search-card">
+                <input class="search-input" id="search-input" name="search" type="text" />
             </div>
-            <input id="search-type" name="type" type="text" class="display-none" />
-        </div>
 
-        <div class="card search-card">
-            <input class="search-input" id="search-input" name="search" type="text" />
-        </div>
+            <div class="card button-card">
+                <button class="button" type="submit">Search</button>
+            </div>
+        </form>
 
-        <div class="card button-card">
-            <button class="button" type="submit">Search</button>
+        <div class="title-list" id="title-list">
         </div>
-    </form>
-
-    <div class="title-list" id="title-list">
     </div>
 </div>
+
 
 @section Scripts {
     <script src="/scripts/jessflix/index.js"></script>

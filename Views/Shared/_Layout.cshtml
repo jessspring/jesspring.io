@@ -5,12 +5,16 @@
 <html>
 
 <head>
-    <title>jesspring.io</title>
+    <title>@ViewData["Title"]</title>
 
-    <script src="/scripts/site.js"></script>
+    <script src="/scripts/site/achievements.js"></script>
+    <script src="/scripts/site/splash.js"></script>
+    <script src="/scripts/site/meow.js"></script>
+    <script src="/scripts/site/footer.js"></script>
 
-    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high" onload="fontLoaded()">
+    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high">
     <link rel="stylesheet" href="/styles.css">
+
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 
@@ -31,22 +35,31 @@
     </main>
 
     <footer class="footer scale3 flex justify-content-center">
-        <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank">
+        <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank" id="footer-link-instagram">
             <img src="/images/instagram.png">
         </a>
 
-        <a class="icon" href="https://discord.gg/HMMpgw8TzA" target="_blank">
+        <a class="icon" href="https://discord.gg/HMMpgw8TzA" target="_blank" id="footer-link-discord">
             <img src="/images/discord.png">
         </a>
 
-        <a class="icon" href="https://open.spotify.com/user/lolsville" target="_blank">
+        <a class="icon" href="https://open.spotify.com/user/lolsville" target="_blank" id="footer-link-spotify">
             <img src="/images/spotify.png">
         </a>
 
-        <a class="icon" href="https://github.com/jessspring" target="_blank">
+        <a class="icon" href="https://github.com/jessspring" target="_blank" id="footer-link-github">
             <img src="/images/github.png">
         </a>
     </footer>
+
+    <div id="achievement-popup-container" class="achievement-popup-container card flex fd-row unselectable">
+        <img id="achievement-popup-image" class="achievement-popup-image" />
+
+        <div class="flex fd-column">
+            <div id="achievement-popup-name" class="font-size-2 home-card-title-yellow pixel-font-bold achievement-title"></div>
+            <div class="font-size-2 title-name">Achievement unlocked!</div>
+        </div>
+    </div>
 </body>
 
 @RenderSection("Scripts", false)
