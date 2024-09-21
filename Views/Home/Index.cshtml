@@ -19,7 +19,14 @@
                 Achievements
             </div>
 
-            <div class="card yellow-card home-card flex">
+            <div class="card yellow-card home-card flex fd-column gap-20">
+                <div class="flex jc-space-between" id="recent-achievements">
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                </div>
+
                 @Html.ActionLink("View all", nameof(AchievementsController.Index), AchievementsController.Name, null, new { @class = "button" })
             </div>
         </div>
@@ -37,3 +44,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="/scripts/home/index.js"></script>
+}

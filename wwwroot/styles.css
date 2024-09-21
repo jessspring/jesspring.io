@@ -474,3 +474,14 @@ a.button {
 .m-b-20 {
     margin-bottom: 10px;
 }
+
+.jc-space-between {
+    justify-content: space-between;
+}
+
+.achievement-image {
+    width: 64px;
+    height: 64px;
+    box-shadow: rgb(63, 0, 63) 10px 10px;
+    margin-right: 10px;
+}
