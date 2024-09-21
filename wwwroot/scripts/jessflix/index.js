@@ -4,6 +4,7 @@ const tvUrl = "https://api.themoviedb.org/3/search/tv?api_key=710eae815b269abfbd
 const titleList = document.getElementById("title-list");
 const searchForm = document.getElementById("search-form");
 
+//Create movie title element from template
 function createMovieElement(result) {
     const date = result.release_date != ""
         ? result.release_date
@@ -12,6 +13,7 @@ function createMovieElement(result) {
     return createGenericTitleElement(result, date, result.title, `/Jessflix/Watch/Movie/${result.id}`);
 }
 
+//Create TV series title element from template
 function createTvElement(result) {
     const date = result.first_air_date != ""
         ? result.first_air_date
@@ -20,6 +22,7 @@ function createTvElement(result) {
     return createGenericTitleElement(result, date, result.name, `/Jessflix/Watch/TV/${result.id}`);
 }
 
+//Base title element template
 function createGenericTitleElement(result, date, name, url) {
     const posterPath = result.poster_path != null
         ? `https://image.tmdb.org/t/p/w200${result.poster_path}`
@@ -47,12 +50,13 @@ function createGenericTitleElement(result, date, name, url) {
 }
 
 async function getData() {
+    //Send request
     const formData = new FormData(searchForm);
     const response = await fetch(searchForm.action + formData.get("search"));
     const json = await response.json();
 
+    //Clear title list and populate with new titles
     titleList.innerHTML = "";
-
     if (response.url.startsWith(movieUrl)) {
         for (const result of json.results) {
             titleList.appendChild(createMovieElement(result));
@@ -75,6 +79,7 @@ const moviesButton = document.getElementById("movies-button");
 const tvButton = document.getElementById("tv-button");
 const searchTypeInput = document.getElementById("search-type");
 
+//Toggle form URL and buttons
 function setSearchType(searchType) {
     if (searchType == "movies") {
         moviesButton.classList.toggle("button-pressed", true);
@@ -93,6 +98,7 @@ function setSearchType(searchType) {
 moviesButton.addEventListener("click", () => setSearchType("movies"));
 tvButton.addEventListener("click", () => setSearchType("tv"));
 
+//Initialise form URL and buttons on page load
 window.addEventListener("load", () => setTimeout(() => {
     if (searchTypeInput.value == null || searchTypeInput.value == "") {
         moviesButton.classList.toggle("button-pressed", true);

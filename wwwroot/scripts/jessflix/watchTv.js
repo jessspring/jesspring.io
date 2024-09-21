@@ -8,6 +8,7 @@ const streamEmbed = document.getElementById("stream-embed");
 fetch(tvUrl.replace("{tvId}", window.data.tvId))
     .then(x => x.json())
     .then(json => {
+        //Set series image and info on load
         const posterPath = json.poster_path != null
             ? `https://image.tmdb.org/t/p/w200${json.poster_path}`
             : "/images/question_mark.png";
@@ -25,8 +26,8 @@ fetch(tvUrl.replace("{tvId}", window.data.tvId))
         document.getElementById("title-name").innerHTML = json.name;
         document.getElementById("title-description").innerHTML = json.overview;
 
+        //Set season select options
         seasonSelect.innerHTML = "";
-
         for (const season of json.seasons) {
             const optionElement = document.createElement("option");
             optionElement.value = season.season_number;
@@ -34,6 +35,7 @@ fetch(tvUrl.replace("{tvId}", window.data.tvId))
             seasonSelect.appendChild(optionElement);
         }
 
+        //Load episodes for initial season
         loadEpisodes();
     });
 
@@ -43,8 +45,8 @@ function loadEpisodes() {
     fetch(seasonUrl.replace("{tvId}", window.data.tvId).replace("{seasonNumber}", seasonSelect.value))
         .then(x => x.json())
         .then(json => {
+            //Set episode select options
             episodeSelect.innerHTML = "";
-
             for (const episode of json.episodes) {
                 const optionElement = document.createElement("option");
                 optionElement.value = episode.episode_number;
@@ -52,6 +54,7 @@ function loadEpisodes() {
                 episodeSelect.appendChild(optionElement);
             }
 
+            //Set stream link for initial episode
             setStreamEmbed();
         });
 }
