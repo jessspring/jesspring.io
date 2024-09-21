@@ -20,3 +20,7 @@ fetch(url.replace("{movieId}", window.data.movieId))
         document.getElementById("title-name").innerHTML = json.title;
         document.getElementById("title-description").innerHTML = json.overview;
     });
+
+if (window.data.movieId === "472796") {
+    unlockAchievement("watch_dominion");
+}

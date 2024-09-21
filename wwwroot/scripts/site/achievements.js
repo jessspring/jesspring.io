@@ -3,6 +3,7 @@ const achievementIdMap = {
     catcophony: 2,
     number_one_fan: 3,
     ask_nicely: 4,
+    watch_dominion: 5,
 };
 
 const achievementInfo = [
@@ -33,6 +34,13 @@ const achievementInfo = [
         name: "Ask nicely",
         description: "Click this achievement icon.",
         image: "ask_nicely"
+    },
+    {
+        id: 5,
+        order: 5,
+        name: "watchdominion.org",
+        description: "Watch dominion.",
+        image: "watch_dominion"
     },
 ];
 
