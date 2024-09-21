@@ -33,22 +33,22 @@ window.addEventListener("load", () => {
 
 //Create unlocked achievement element from template
 function createUnlocked(info) {
-    return createAchievement(info.image, info.name, info.description, info.id);
+    return createAchievement(info.image, info.name, info.description, info.id, "achievement-title-yellow");
 }
 
 //Create locked achievement element from template
 function createLocked(info) {
-    return createAchievement("missing_achievement", info.name, "???", info.id);
+    return createAchievement("missing_achievement", info.name, "???", info.id, "achievement-title-grey");
 }
 
 //Base achievement element template
-function createAchievement(image, title, description, id) {
+function createAchievement(image, title, description, id, titleClass) {
     const achievementHtml =
         `<div class="flex fd-row m-b-20">
             <img class="achievement-popup-image" id="achivement-icon-${id}" src="/images/achievements/${image}.png" />
 
             <div>
-                <div class="font-size-2 home-card-title-yellow pixel-font-bold achievement-title">${title}</div>
+                <div class="font-size-2 ${titleClass} pixel-font-bold achievement-title">${title}</div>
                 <div class="">${description}</div>
             </div>
         </div>`;
