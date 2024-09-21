@@ -3,10 +3,10 @@ const url = "https://api.themoviedb.org/3/movie/{movieId}?api_key=710eae815b269a
 fetch(url.replace("{movieId}", window.data.movieId))
     .then(x => x.json())
     .then(json => {
+        //Set movie image and info on load
         const posterPath = json.poster_path != null
             ? `https://image.tmdb.org/t/p/w200${json.poster_path}`
             : "/images/question_mark.png";
-
         document.getElementById("title-image").setAttribute("src", posterPath);
 
         if (json.release_date != null) {

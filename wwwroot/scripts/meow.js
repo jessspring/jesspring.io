@@ -52,4 +52,6 @@ function meow() {
         const randomFile = meowAudios[Math.floor(Math.random() * meowAudios.length)];
         setTimeout(() => randomFile.play(), Math.floor(Math.random() * 5000));
     }
+
+    unlockAchievement("catcophony");
 }

@@ -15,6 +15,7 @@ fetch("/text/splash.txt")
         //1% chance to be rainbow :)
         if (Math.random() < 0.01) {
             splashElement.classList.add("splash-text-rainbow");
+            unlockAchievement("rainbow_splash");
         }
 
         splashTextLoaded = true
@@ -23,6 +24,7 @@ fetch("/text/splash.txt")
     });
 
 function fontLoaded() {
+    //Check if font is pixel font
     if (!document.fonts.check("1em PixelCraft"))
         return;
 
