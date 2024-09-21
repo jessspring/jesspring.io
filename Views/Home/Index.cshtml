@@ -11,7 +11,7 @@
             </div>
 
             <div class="card blue-card home-card flex">
-                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new {@class="button"})
+                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new { @class = "button" })
             </div>
         </div>
         <div class="card">
@@ -19,8 +19,8 @@
                 Achievements
             </div>
 
-            <div class="card yellow-card home-card">
-                Coming soon!
+            <div class="card yellow-card home-card flex">
+                @Html.ActionLink("View all", nameof(AchievementsController.Index), AchievementsController.Name, null, new { @class = "button" })
             </div>
         </div>
     </div>
