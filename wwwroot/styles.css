@@ -485,3 +485,13 @@ a.button {
     box-shadow: rgb(63, 0, 63) 10px 10px;
     margin-right: 10px;
 }
+
+.achievement-title-yellow {
+    color: rgb(223, 223, 0);
+    text-shadow: rgb(47, 47, 0) 4px 4px;
+}
+
+.achievement-title-grey {
+    color: rgb(127, 127, 127);
+    text-shadow: rgb(47, 47, 47) 4px 4px;
+}
