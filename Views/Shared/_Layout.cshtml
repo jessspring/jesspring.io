@@ -7,10 +7,13 @@
 <head>
     <title>jesspring.io</title>
 
-    <script src="/scripts/site.js"></script>
+    <script src="/scripts/achievements.js"></script>
+    <script src="/scripts/splash.js"></script>
+    <script src="/scripts/meow.js"></script>
 
-    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high" onload="fontLoaded()">
+    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high">
     <link rel="stylesheet" href="/styles.css">
+
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 
@@ -47,6 +50,15 @@
             <img src="/images/github.png">
         </a>
     </footer>
+
+    <div id="achievement-popup-container" class="achievement-popup-container card flex fd-row unselectable">
+        <img id="achievement-popup-image" class="achievement-popup-image" />
+
+        <div class="flex fd-column">
+            <div id="achievement-popup-name" class="font-size-2 home-card-title-yellow pixel-font-bold achievement-popup-title"></div>
+            <div class="font-size-2 title-name">Achievement unlocked!</div>
+        </div>
+    </div>
 </body>
 
 @RenderSection("Scripts", false)
