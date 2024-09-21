@@ -414,3 +414,84 @@ a.button {
 .home-card {
     margin: 0 10px 10px 0;
 }
+
+.achievement-popup-container {
+    position: fixed;
+    bottom: -150px;
+    right: 20px;
+}
+
+.achievement-popup-image {
+    width: 64px;
+    height: 64px;
+    box-shadow: rgb(63, 0, 63) 10px 10px;
+    margin-right: 20px;
+    z-index: 200;
+}
+
+.achievement-popup-title {
+    letter-spacing: 2px;
+}
+
+@keyframes achievement-popup-container-move {
+    0% {
+        bottom: -150px;
+    }
+
+    10% {
+        bottom: 20px;
+    }
+
+    90% {
+        bottom: 20px;
+    }
+
+    100% {
+        bottom: -150px;
+    }
+}
+
+.achievement-popup-container-move {
+    animation-name: achievement-popup-container-move;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.achievement-title {
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.m-b-20 {
+    margin-bottom: 10px;
+}
+
+.jc-space-between {
+    justify-content: space-between;
+}
+
+.achievement-image {
+    width: 64px;
+    height: 64px;
+    box-shadow: rgb(63, 0, 63) 10px 10px;
+    margin-right: 10px;
+}
+
+.achievement-title-yellow {
+    color: rgb(223, 223, 0);
+    text-shadow: rgb(47, 47, 0) 4px 4px;
+}
+
+.achievement-title-grey {
+    color: rgb(127, 127, 127);
+    text-shadow: rgb(47, 47, 47) 4px 4px;
+}

@@ -11,16 +11,23 @@
             </div>
 
             <div class="card blue-card home-card flex">
-                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new {@class="button"})
+                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new { @class = "button" })
             </div>
         </div>
         <div class="card">
             <div class="font-size-4 home-card-title home-card-title-yellow">
-                Other stuff
+                Achievements
             </div>
 
-            <div class="card yellow-card home-card">
-                @* @Html.ActionLink("Stuff", nameof(JessflixController.Index), JessflixController.Name) *@
+            <div class="card yellow-card home-card flex fd-column gap-20">
+                <div class="flex jc-space-between" id="recent-achievements">
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                    <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+                </div>
+
+                @Html.ActionLink("View all", nameof(AchievementsController.Index), AchievementsController.Name, null, new { @class = "button" })
             </div>
         </div>
     </div>
@@ -32,12 +39,12 @@
             </div>
 
             <div class="card green-card home-card">
-@*                 @Html.ActionLink("WallOS", nameof(JessflixController.Index), JessflixController.Name)
-                <br />
-                @Html.ActionLink("Sweeper Idle", nameof(JessflixController.Index), JessflixController.Name)
-                <br />
-                @Html.ActionLink("IdleDice", nameof(JessflixController.Index), JessflixController.Name) *@
+                Coming soon!
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="/scripts/home/index.js"></script>
+}
