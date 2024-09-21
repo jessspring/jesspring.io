@@ -2,29 +2,37 @@ const achievementIdMap = {
     rainbow_splash: 1,
     catcophony: 2,
     number_one_fan: 3,
+    ask_nicely: 4,
 };
 
 const achievementInfo = [
     {
         id: 1,
-        order: 1,
+        order: 3,
         name: "Rainbow splash",
-        descripion: "Hit the 1% chance to get rainbow splash text",
+        description: "Hit the 1% chance to get rainbow splash text.",
         image: "rainbow"
     },
     {
         id: 2,
-        order: 2,
+        order: 4,
         name: "Catcophony",
-        descripion: "Encounter the Catcophony easter egg",
+        description: "Encounter the Catcophony easter egg.",
         image: "cat_note"
     },
     {
         id: 3,
-        order: 3,
+        order: 1,
         name: "Number one fan",
-        descripion: "Visit all of the footer links",
+        description: "Visit all of the footer links.",
         image: "number_one"
+    },
+    {
+        id: 4,
+        order: 2,
+        name: "Ask nicely",
+        description: "Click this achievement icon.",
+        image: "ask_nicely"
     },
 ];
 

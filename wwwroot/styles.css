@@ -457,3 +457,20 @@ a.button {
     animation-iteration-count: 1;
     animation-direction: normal;
 }
+
+.space-around {
+    justify-content: space-around;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.achievement-title {
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.m-b-20 {
+    margin-bottom: 10px;
+}
