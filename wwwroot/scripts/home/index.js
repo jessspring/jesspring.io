@@ -14,7 +14,6 @@ for (let i = 0; i < 4 - numUnlocked; i++) {
     unlockedAchievements.push("missing_achievement");
 }
 
-
 //Insert image elements
 recentAchievements.innerHTML = "";
 unlockedAchievements.forEach(image => {

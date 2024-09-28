@@ -1,4 +1,5 @@
-﻿@{
+﻿@using jesspring.io.Controllers
+@{
     var contentClass = ViewData.ContainsKey("ContentClass") ? $"{ViewData["ContentClass"]}" : string.Empty;
 }
 
@@ -19,6 +20,9 @@
 </head>
 
 <body class="pixelated container">
+    <div id="mood" class="mood-overlay unselectable"></div>
+    <script src="/scripts/site/mood.js"></script>
+
     <header class="header scale3 flex justify-content-center">
         <a href="/">
             <img class="center" src="/images/title.png">
@@ -35,6 +39,10 @@
     </main>
 
     <footer class="footer scale3 flex justify-content-center">
+        <a class="icon cog" href="@Url.Action(nameof(HomeController.Settings), HomeController.Name)">
+            <img src="/images/cog.png">
+        </a>
+
         <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank" id="footer-link-instagram">
             <img src="/images/instagram.png">
         </a>

@@ -1,0 +1,81 @@
+﻿@using jesspring.io.Controllers
+@{
+    ViewData["Title"] = "jesspring.io";
+}
+
+<div class="flex fd-column w-100 gap-20 align align-items-center">
+    <div class="card flex w-fit">
+        <div class="font-size-4 home-card-title home-card-title-yellow">
+            Settings
+        </div>
+    </div>
+
+    <div class="flex fd-row w-100 gap-20">
+        <div class="flex fd-column w-50 gap-20">
+            <div class="card">
+                <div class="font-size-4 home-card-title home-card-title-yellow">
+                    Mood
+                </div>
+
+                <div class="card blue-card home-card flex jc-space-between flex-wrap gap-10">
+                    <button class="button f-grow-1" data-mood="default">Default</button>
+                    <button class="button f-grow-1" data-mood="depression">Depression</button>
+                    <button class="button f-grow-1" data-mood="rainy">Rainy</button>
+                    <button class="button f-grow-1" data-mood="noir">Noir</button>
+                    <button class="button f-grow-1" data-mood="inverted">Inverted</button>
+                    <button class="button f-grow-1" data-mood="terminal">Terminal</button>
+                </div>
+            </div>
+            @*             <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+            Achievements
+            </div>
+
+            <div class="card yellow-card home-card flex fd-column gap-20">
+            <div class="flex jc-space-between" id="recent-achievements">
+            <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+            <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+            <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+            <img src="/images/achievements/missing_achievement.png" class="achievement-image" />
+            </div>
+
+            @Html.ActionLink("View all", nameof(AchievementsController.Index), AchievementsController.Name, null, new { @class = "button" })
+            </div>
+            </div> *@
+        </div>
+
+        <div class="flex fd-column w-50 gap-20">
+            @*             <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+            TODO
+            </div>
+
+            <div class="card white-card home-card">
+            More achievements
+            <br />
+            More splash text
+            <br />
+            Settings page
+            <br />
+            Pet flies
+            <br />
+            Games
+            </div>
+            </div>
+
+            <div class="card">
+            <div class="font-size-4 home-card-title home-card-title-yellow">
+            Gaymes
+            </div>
+
+            <div class="card green-card home-card">
+            Coming soon!
+            </div>
+            </div> *@
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/scripts/home/settings.js"></script>
+}
