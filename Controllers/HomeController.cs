@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace jesspring.io.Controllers
 {
+    [Route("/{action=Index}")]
     public class HomeController : BaseController
     {
         public static string Name => GetControllerName(nameof(HomeController));
@@ -17,6 +18,11 @@ namespace jesspring.io.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Settings()
+        {
+            return View();
         }
     }
 }
