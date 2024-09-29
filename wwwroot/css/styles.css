@@ -19,7 +19,7 @@ body {
 
 .header {
     background-color: rgb(204, 0, 204);
-    background-image: url("images/top_dither.png");
+    background-image: url("/images/top_dither.png");
     background-repeat: repeat-x;
     background-position: bottom;
     padding: 10px 0;
@@ -27,7 +27,7 @@ body {
 
 .footer {
     background-color: rgb(127, 0, 127);
-    background-image: url("images/bottom_dither.png");
+    background-image: url("/images/bottom_dither.png");
     background-repeat: repeat-x;
     background-position: top;
     width: 100%;
@@ -300,7 +300,6 @@ body {
 a.button {
     text-decoration: none;
     color: rgb(0,0,0);
-    cursor: default;
     text-align: center;
     line-height: 28px;
     height: 25px;
@@ -579,7 +578,7 @@ a.button {
 .mood-terminal {
     background-color: rgba(0, 255, 0, 1);
     mix-blend-mode: multiply;
-    background-image: url("images/scanline.png");
+    background-image: url("/images/scanline.png");
     animation-name: mood-terminal;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -601,7 +600,7 @@ a.button {
 .mood-rainy {
     background-color: rgba(0, 255, 255, 0.75);
     mix-blend-mode: soft-light;
-    background-image: url("images/water.png");
+    background-image: url("/images/water.png");
     animation-name: mood-rainy;
     animation-duration: 1s;
     animation-iteration-count: infinite;
