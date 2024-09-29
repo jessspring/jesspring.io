@@ -1,0 +1,6 @@
+html,
+a.button,
+button,
+a {
+    cursor: url("/images/cursors/diamond_sword.png"), auto !important;
+}
