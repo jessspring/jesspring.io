@@ -1,0 +1,6 @@
+html,
+a.button,
+button,
+a {
+    cursor: url("/images/cursors/gauntlet.png"), auto !important;
+}

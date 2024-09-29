@@ -608,3 +608,7 @@ a.button {
     animation-timing-function: linear;
     zoom: 4;
 }
+
+.three-button {
+    max-width: 123.33px;
+}
