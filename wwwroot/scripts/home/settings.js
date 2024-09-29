@@ -19,3 +19,22 @@ function setCursor(event) {
     cursorCss.href = `/css/cursors/${cursor}.css`;
     window.localStorage.setItem("cursor", cursor);
 }
+
+const deleteDataButton = document.getElementById("delete-data");
+deleteDataButton.addEventListener("click", () => {
+    if (deleteDataButton.dataset.step == 0) {
+        deleteDataButton.dataset.step = 1;
+        deleteDataButton.innerHTML = "Are you sure?";
+        deleteDataButton.classList.toggle("button-yellow", true);
+    }
+    else if (deleteDataButton.dataset.step == 1) {
+        deleteDataButton.dataset.step = 2;
+        deleteDataButton.innerHTML = "REALLY?";
+        deleteDataButton.classList.toggle("button-yellow", false);
+        deleteDataButton.classList.toggle("button-red", true);
+    }
+    else if (deleteDataButton.dataset.step == 2) {
+        window.localStorage.clear();
+        window.location = window.location;
+    }
+});

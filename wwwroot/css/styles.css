@@ -193,6 +193,11 @@ body {
     box-shadow: rgb(0, 63, 63) 10px 10px;
 }
 
+.red-card {
+    background-color: rgb(204, 0, 0);
+    box-shadow: rgb(0, 63, 63) 10px 10px;
+}
+
 .white-card {
     background-color: rgb(255, 255, 255);
     box-shadow: rgb(63, 63, 63) 10px 10px;
@@ -325,6 +330,17 @@ a.button {
 
     .button-yellow:hover {
         background-color: rgb(255, 255, 0);
+    }
+
+.button-red {
+    background-color: rgb(191, 0, 0);
+    border-bottom: solid 5px rgb(63, 0, 0);
+    color: white;
+}
+
+    .button-red:hover {
+        background-color: rgb(255, 0, 0);
+        color: white;
     }
 
 .button-pressed {
