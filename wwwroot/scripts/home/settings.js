@@ -1,4 +1,5 @@
-﻿const moodButtons = document.querySelectorAll("[data-mood]");
+﻿//Mood buttons
+const moodButtons = document.querySelectorAll("[data-mood]");
 moodButtons.forEach(x => x.addEventListener("click", setMood));
 
 function setMood(event) {
@@ -10,6 +11,7 @@ function setMood(event) {
     window.localStorage.setItem("mood", newMood);
 }
 
+//Cursor buttons
 const cursorButtons = document.querySelectorAll("[data-cursor]");
 cursorButtons.forEach(x => x.addEventListener("click", setCursor));
 
@@ -20,6 +22,7 @@ function setCursor(event) {
     window.localStorage.setItem("cursor", cursor);
 }
 
+//Delete localstorage data button
 const deleteDataButton = document.getElementById("delete-data");
 deleteDataButton.addEventListener("click", () => {
     if (deleteDataButton.dataset.step == 0) {
@@ -37,4 +40,23 @@ deleteDataButton.addEventListener("click", () => {
         window.localStorage.clear();
         window.location = window.location;
     }
+});
+
+//Playing with fire achievement
+let timeout = null;
+deleteDataButton.addEventListener("mousedown", event => {
+    if (event.target.dataset.step == 2) {
+        timeout = setTimeout(() => {
+            unlockAchievement("playing_with_fire");
+        }, 5000);
+    }
+});
+deleteDataButton.addEventListener("mouseup", () => {
+    clearTimeout(timeout);
+});
+deleteDataButton.addEventListener("mouseout", () => {
+    clearTimeout(timeout);
+});
+deleteDataButton.addEventListener("mouseleave", () => {
+    clearTimeout(timeout);
 });
