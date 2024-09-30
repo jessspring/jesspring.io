@@ -1,4 +1,5 @@
-﻿@{
+﻿@using jesspring.io.Controllers
+@{
     var contentClass = ViewData.ContainsKey("ContentClass") ? $"{ViewData["ContentClass"]}" : string.Empty;
 }
 
@@ -13,12 +14,17 @@
     <script src="/scripts/site/footer.js"></script>
 
     <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link id="cursor-css" rel="stylesheet" href="/css/cursors/default.css">
+    <script src="/scripts/site/cursor.js"></script>
 
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 
 <body class="pixelated container">
+    <div id="mood" class="mood-overlay unselectable"></div>
+    <script src="/scripts/site/mood.js"></script>
+
     <header class="header scale3 flex justify-content-center">
         <a href="/">
             <img class="center" src="/images/title.png">
@@ -35,6 +41,10 @@
     </main>
 
     <footer class="footer scale3 flex justify-content-center">
+        <a class="icon cog" href="@Url.Action(nameof(HomeController.Settings), HomeController.Name)">
+            <img src="/images/cog.png">
+        </a>
+
         <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank" id="footer-link-instagram">
             <img src="/images/instagram.png">
         </a>
