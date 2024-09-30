@@ -19,7 +19,7 @@ body {
 
 .header {
     background-color: rgb(204, 0, 204);
-    background-image: url("images/top_dither.png");
+    background-image: url("/images/top_dither.png");
     background-repeat: repeat-x;
     background-position: bottom;
     padding: 10px 0;
@@ -27,7 +27,7 @@ body {
 
 .footer {
     background-color: rgb(127, 0, 127);
-    background-image: url("images/bottom_dither.png");
+    background-image: url("/images/bottom_dither.png");
     background-repeat: repeat-x;
     background-position: top;
     width: 100%;
@@ -193,6 +193,11 @@ body {
     box-shadow: rgb(0, 63, 63) 10px 10px;
 }
 
+.red-card {
+    background-color: rgb(204, 0, 0);
+    box-shadow: rgb(0, 63, 63) 10px 10px;
+}
+
 .white-card {
     background-color: rgb(255, 255, 255);
     box-shadow: rgb(63, 63, 63) 10px 10px;
@@ -300,7 +305,6 @@ body {
 a.button {
     text-decoration: none;
     color: rgb(0,0,0);
-    cursor: default;
     text-align: center;
     line-height: 28px;
     height: 25px;
@@ -326,6 +330,17 @@ a.button {
 
     .button-yellow:hover {
         background-color: rgb(255, 255, 0);
+    }
+
+.button-red {
+    background-color: rgb(191, 0, 0);
+    border-bottom: solid 5px rgb(63, 0, 0);
+    color: white;
+}
+
+    .button-red:hover {
+        background-color: rgb(255, 0, 0);
+        color: white;
     }
 
 .button-pressed {
@@ -494,4 +509,122 @@ a.button {
 .achievement-title-grey {
     color: rgb(127, 127, 127);
     text-shadow: rgb(47, 47, 47) 4px 4px;
+}
+
+@keyframes cog-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cog {
+    position: absolute;
+    left: 5px;
+}
+
+    .cog:hover {
+        animation-name: cog-spin;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-timing-function: linear;
+    }
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.w-33 {
+    width: 33%;
+}
+
+.f-grow-1 {
+    flex-grow: 1;
+}
+
+.mood-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    background-color: rgba(255, 255, 255, 0);
+    mix-blend-mode: difference;
+}
+
+.mood-default {
+    background-color: rgba(255, 255, 255, 0);
+    mix-blend-mode: difference;
+}
+
+.mood-noir {
+    background-color: rgba(255, 255, 255, 1);
+    mix-blend-mode: color;
+}
+
+.mood-inverted {
+    background-color: rgba(255, 255, 255, 1);
+    mix-blend-mode: difference;
+}
+
+.mood-depression {
+    background-color: rgba(0, 0, 0, 0.75);
+    mix-blend-mode: color;
+}
+
+@keyframes mood-terminal {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: 30px;
+    }
+}
+
+.mood-terminal {
+    background-color: rgba(0, 255, 0, 1);
+    mix-blend-mode: multiply;
+    background-image: url("/images/scanline.png");
+    animation-name: mood-terminal;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    zoom: 3;
+}
+
+@keyframes mood-rainy {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: 32px;
+    }
+}
+
+.mood-rainy {
+    background-color: rgba(0, 255, 255, 0.75);
+    mix-blend-mode: soft-light;
+    background-image: url("/images/water.png");
+    animation-name: mood-rainy;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    zoom: 4;
+}
+
+.three-button {
+    max-width: 123.33px;
 }

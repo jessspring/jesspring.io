@@ -1,0 +1,60 @@
+﻿@using jesspring.io.Controllers
+@{
+    ViewData["Title"] = "jesspring.io";
+}
+
+<div class="flex fd-column w-100 gap-20 align align-items-center">
+    <div class="card flex w-fit">
+        <div class="font-size-4 home-card-title home-card-title-yellow">
+            Settings
+        </div>
+    </div>
+
+    <div class="flex fd-row w-100 gap-20">
+        <div class="flex fd-column w-50 gap-20">
+            <div class="card">
+                <div class="font-size-4 home-card-title home-card-title-yellow">
+                    Mood
+                </div>
+
+                <div class="card blue-card home-card flex jc-space-between flex-wrap gap-10">
+                    <button class="button f-grow-1 three-button" data-mood="default">Default</button>
+                    <button class="button f-grow-1 three-button" data-mood="depression">Depression</button>
+                    <button class="button f-grow-1 three-button" data-mood="rainy">Rainy</button>
+                    <button class="button f-grow-1 three-button" data-mood="noir">Noir</button>
+                    <button class="button f-grow-1 three-button" data-mood="inverted">Inverted</button>
+                    <button class="button f-grow-1 three-button" data-mood="terminal">Terminal</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="font-size-4 home-card-title home-card-title-yellow">
+                    Data
+                </div>
+
+                <div class="card white-card home-card flex jc-space-between flex-wrap gap-10">
+                    <button id="delete-data" data-step="0" class="button f-grow-1">Delete all data</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex fd-column w-50 gap-20">
+            <div class="card">
+                <div class="font-size-4 home-card-title home-card-title-yellow">
+                    Cursor
+                </div>
+
+                <div class="card yellow-card home-card flex jc-space-between flex-wrap gap-10">
+                    <button class="button f-grow-1 three-button" data-cursor="default">Default</button>
+                    <button class="button f-grow-1 three-button" data-cursor="runescape">Scimitar</button>
+                    <button class="button f-grow-1 three-button" data-cursor="minecraft">Sword</button>
+                    <button class="button f-grow-1 three-button" data-cursor="gauntlet">Gauntlet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/scripts/home/settings.js"></script>
+}

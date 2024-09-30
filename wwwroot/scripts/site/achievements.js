@@ -4,6 +4,7 @@ const achievementIdMap = {
     number_one_fan: 3,
     ask_nicely: 4,
     watch_dominion: 5,
+    playing_with_fire: 6,
 };
 
 const achievementInfo = [
@@ -41,6 +42,13 @@ const achievementInfo = [
         name: "watchdominion.org",
         description: "Watch dominion.",
         image: "watch_dominion"
+    },
+    {
+        id: 6,
+        order: 6,
+        name: "Playing with fire",
+        description: "Hold the final \"delete all data\" button for 5 seconds.",
+        image: "playing_with_fire"
     },
 ];
 
