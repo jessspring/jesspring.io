@@ -639,11 +639,10 @@ a.button {
     box-shadow: rgb(63, 63, 63) 10px 10px;
     margin-right: 10px;
     flex-shrink: 1;
-    /*margin: auto;*/
-    /*overflow: auto;*/
 }
 
 .recommended-image {
     max-width: 100%;
     image-rendering: initial;
+    height: 100%;
 }
