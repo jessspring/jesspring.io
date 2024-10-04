@@ -40,7 +40,7 @@ const achievementInfo = [
         id: 5,
         order: 5,
         name: "watchdominion.org",
-        description: "Watch dominion.",
+        description: "Watch Dominion.",
         image: "watch_dominion"
     },
     {
