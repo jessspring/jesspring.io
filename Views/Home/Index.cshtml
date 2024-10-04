@@ -10,8 +10,22 @@
                 Jessflix
             </div>
 
-            <div class="card blue-card home-card flex">
-                @Html.ActionLink("Let's go!", nameof(JessflixController.Index), JessflixController.Name, null, new { @class = "button" })
+            <div class="card blue-card home-card flex fd-column gap-20">
+                <div class="flex fd-row jc-space-between w-100 gap-10">
+                    <a class="recommended-image-link light-hover" href="/Jessflix/Watch/Movie/472796">
+                        <img class="recommended-image" src="https://image.tmdb.org/t/p/w200/sipSZ6Gcuz6O7gzQbLdskpwjh7V.jpg" />
+                    </a>
+                    <a class="recommended-image-link light-hover" href="/Jessflix/Watch/Movie/157336">
+                        <img class="recommended-image" src="https://image.tmdb.org/t/p/w200/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" />
+                    </a>
+                    <a class="recommended-image-link light-hover" href="/Jessflix/Watch/Movie/234200">
+                        <img class="recommended-image" src="https://image.tmdb.org/t/p/w200/mrITqHNw0XzT7egAPByDuiE3QZf.jpg" />
+                    </a>
+                </div>
+
+                <div class="flex">
+                    @Html.ActionLink("Search all", nameof(JessflixController.Index), JessflixController.Name, null, new { @class = "button button-fit" })
+                </div>
             </div>
         </div>
         <div class="card">
