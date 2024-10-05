@@ -125,6 +125,7 @@ class Fly {
         if (this.positionY > canvas.height + 100)
             this.positionY = -50;
 
+        //Resting state
         if (this.resting) {
             this.image = this.restImage;
 
@@ -134,6 +135,7 @@ class Fly {
                 this.currentFlyTime = this.flyTime + Math.random();
             }
         }
+        //Flying state
         else {
             this.image = getAnimationTexture(this.flyingImages, this.actionTimer, this.animationFps);
 
@@ -155,6 +157,7 @@ class Fly {
             }
         }
 
+        //Check if fly is swatted
         if (mouse.isClicked() && window.localStorage.getItem("cursor") == "swatter") {
             const centerX = this.positionX + this.image.width / 2;
             const centerY = this.positionY + this.image.height / 2;
