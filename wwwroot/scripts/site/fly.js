@@ -35,6 +35,7 @@ let previousTimestamp = 0;
 let delta = 0;
 const flies = [];
 let mouse;
+let swatted = 0;
 
 function flyInvasion() {
     bugButton.style.opacity = 0;
@@ -166,6 +167,12 @@ class Fly {
             if (dist2 <= 750) {
                 this.dead = true;
                 this.image = this.deadImages[Math.floor(Math.random() * this.deadImages.length)];
+
+                swatted++;
+
+                if (swatted >= 25) {
+                    unlockAchievement("debugging");
+                }
             }
         }
     }

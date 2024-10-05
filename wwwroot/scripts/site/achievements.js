@@ -5,6 +5,7 @@ const achievementIdMap = {
     ask_nicely: 4,
     watch_dominion: 5,
     playing_with_fire: 6,
+    debugging: 7,
 };
 
 const achievementInfo = [
@@ -49,6 +50,13 @@ const achievementInfo = [
         name: "Playing with fire",
         description: "Hold the final \"delete all data\" button for 5 seconds.",
         image: "playing_with_fire"
+    },
+    {
+        id: 7,
+        order: 7,
+        name: "Debugging",
+        description: "Swat 25 flies.",
+        image: "debugging"
     },
 ];
 
