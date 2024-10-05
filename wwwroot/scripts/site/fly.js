@@ -20,6 +20,9 @@ const flyImages = [
     createImage("/images/fly/fly_1.png"),
     createImage("/images/fly/fly_2.png"),
     createImage("/images/fly/fly_3.png"),
+    createImage("/images/fly/fly_5.png"),
+    createImage("/images/fly/fly_6.png"),
+    createImage("/images/fly/fly_7.png"),
 ]
 
 function createImage(fileName) {
@@ -31,6 +34,7 @@ function createImage(fileName) {
 let previousTimestamp = 0;
 let delta = 0;
 const flies = [];
+let mouse;
 
 function flyInvasion() {
     bugButton.style.opacity = 0;
@@ -38,13 +42,17 @@ function flyInvasion() {
 
     //Initialise flies around window edges
     const restImage = flyImages[0];
-    const flyingImages = flyImages.slice(1);
+    const flyingImages = flyImages.slice(1, 3);
+    const deadImages = flyImages.slice(3);
+
     for (let i = 0; i < 15; i++) {
-        flies.push(new Fly(restImage, flyingImages, -32, Math.random() * canvas.height, 0));
-        flies.push(new Fly(restImage, flyingImages, Math.random() * canvas.width, -48, Math.PI * 0.5));
-        flies.push(new Fly(restImage, flyingImages, canvas.width, Math.random() * canvas.height, Math.PI));
-        flies.push(new Fly(restImage, flyingImages, Math.random() * canvas.width, canvas.height, Math.PI * 1.5));
+        flies.push(new Fly(restImage, flyingImages, deadImages, -32, Math.random() * canvas.height, 0));
+        flies.push(new Fly(restImage, flyingImages, deadImages, Math.random() * canvas.width, -48, Math.PI * 0.5));
+        flies.push(new Fly(restImage, flyingImages, deadImages, canvas.width, Math.random() * canvas.height, Math.PI));
+        flies.push(new Fly(restImage, flyingImages, deadImages, Math.random() * canvas.width, canvas.height, Math.PI * 1.5));
     }
+
+    mouse = new Mouse();
 
     requestAnimationFrame(update);
 }
@@ -54,6 +62,8 @@ function update(timestamp) {
     previousTimestamp = timestamp;
 
     context.clearRect(-Number.MAX_SAFE_INTEGER / 2, -Number.MAX_SAFE_INTEGER / 2, Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
+
+    mouse.update();
 
     flies.forEach(x => x.update());
     flies.forEach(x => x.draw());
@@ -69,6 +79,7 @@ class Fly {
     currentFlyTime = 0;
     flyTime = 2.5;
     resting = true;
+    dead = false;
     flyAngle = 0
     flyAngleTime = 0
     speed = 4;
@@ -76,6 +87,7 @@ class Fly {
 
     restImage;
     flyingImages;
+    deadImages;
     positionX;
     positionY;
     rotation;
@@ -83,18 +95,23 @@ class Fly {
     constructor(
         restImage,
         flyingImages,
+        deadImages,
         positionX,
         positionY,
         rotation
     ) {
         this.restImage = restImage;
         this.flyingImages = flyingImages;
+        this.deadImages = deadImages;
         this.positionX = positionX;
         this.positionY = positionY;
         this.rotation = rotation;
     }
 
     update() {
+        if (this.dead)
+            return;
+
         this.actionTimer += delta;
 
         //Wrap fly position if it goes too far from the viewport
@@ -136,6 +153,21 @@ class Fly {
                 this.currentRestTime = this.restTime + Math.random();
             }
         }
+
+        if (mouse.isClicked() && window.localStorage.getItem("cursor") == "swatter") {
+            const centerX = this.positionX + this.image.width / 2;
+            const centerY = this.positionY + this.image.height / 2;
+
+            const diffX = mouse.x - centerX;
+            const diffY = mouse.y - centerY;
+
+            const dist2 = diffX * diffX + diffY * diffY;
+
+            if (dist2 <= 750) {
+                this.dead = true;
+                this.image = this.deadImages[Math.floor(Math.random() * this.deadImages.length)];
+            }
+        }
     }
 
     draw() {
@@ -154,4 +186,39 @@ function drawImage(image, positionX, positionY, rotation) {
     context.translate(-(positionX + image.width / 2), -(positionY + image.height / 2));
     context.drawImage(image, positionX, positionY);
     context.setTransform(originalTransform);
+}
+
+class Mouse {
+    x = 0;
+    y = 0;
+
+    previousMouseButtonDown = false;
+    currentMouseButtonDown = false;
+    runningMouseButtonDown = false;
+
+    constructor() {
+        window.addEventListener("mousemove", event => {
+            this.x = event.clientX;
+            this.y = event.clientY;
+        });
+
+        window.addEventListener("mousedown", event => {
+            if (event.button == 0)
+                this.runningMouseButtonDown = true;
+        });
+
+        window.addEventListener("mouseup", event => {
+            if (event.button == 0)
+                this.runningMouseButtonDown = false;
+        });
+    }
+
+    update() {
+        this.previousMouseButtonDown = this.currentMouseButtonDown;
+        this.currentMouseButtonDown = this.runningMouseButtonDown;
+    }
+
+    isClicked() {
+        return this.currentMouseButtonDown && !this.previousMouseButtonDown;
+    }
 }
