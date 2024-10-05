@@ -34,8 +34,12 @@ const recommendedTitles = [
     ["Breaking Bad", "TV/1396", "ztkUQFLlC19CCMYHW9o1zWhJRNq"],
     ["Titanic", "Movie/597", "9xjZS2rlVxm8SFx8kPC3aIGCOYQ"],                        //for vulcab
     ["Star Trek: The Next Generation", "TV/655", "vkLzXddgUKH5VcpnYiRzpJFrZhz"],    //for vulcab
-    ["Space Dandy", "TV/60874", "ypaXEydotwQyDvdV7bgVND9fOTx"],                     //for bun
+    ["Space Dandy", "TV/60874", "ypaXEydotwQyDvdV7bgVND9fOTx"],                     //for bunpetals
     ["The Crow", "Movie/9495", "rMMB3v6jYHjsvXRNJYESacoTD7j"],
+    ["Better Call Saul", "TV/60059", "fC2HDm5t0kHl7mTm7jxMR31b7by"],                //for sofmeright
+    ["Neon Genesis Evangelion", "TV/890", "y2ah9t0navXyIvoHg1uIbIHO3tt"],           //for icera
+    ["Shōgun", "TV/126308", "7O4iVfOMQmdCSxhOg1WnzG1AgYT"],                         //for icera
+    ["Pokémon", "TV/60572", "rOuGm07PxBhEsK9TaGPRQVJQm1X"],
 ];
 
 let unusedTitles = recommendedTitles;
