@@ -1,0 +1,6 @@
+html,
+a.button,
+button,
+a {
+    cursor: url("/images/cursors/swatter.png") 9 9, auto !important;
+}
