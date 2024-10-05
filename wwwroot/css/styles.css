@@ -31,7 +31,7 @@ body {
     background-repeat: repeat-x;
     background-position: top;
     width: 100%;
-    padding: 10px 0;
+    padding-top: 10px;
 }
 
 .main {
@@ -527,12 +527,18 @@ a.button {
     }
 }
 
-.cog {
-    position: absolute;
-    left: 5px;
+.cog-link {
+    height: 16px;
+    width: 16px;
+    margin-left: 5px;
 }
 
-    .cog:hover {
+.cog-image {
+    width: 16px;
+    height: 16px;
+}
+
+    .cog-image:hover {
         animation-name: cog-spin;
         animation-duration: 1s;
         animation-iteration-count: infinite;
@@ -645,4 +651,25 @@ a.button {
     max-width: 100%;
     image-rendering: initial;
     height: 100%;
+}
+
+.bug {
+    transform: rotate(-90deg);
+    width: 32px;
+    height: 32px;
+    zoom: calc(1/3);
+    align-self: flex-end;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.fly-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 400;
+}
+
+.p-b-10 {
+    padding-bottom: 7.5px;
 }
