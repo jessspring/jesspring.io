@@ -40,6 +40,8 @@ const recommendedTitles = [
     ["Neon Genesis Evangelion", "TV/890", "y2ah9t0navXyIvoHg1uIbIHO3tt"],           //for icera
     ["Shōgun", "TV/126308", "7O4iVfOMQmdCSxhOg1WnzG1AgYT"],                         //for icera
     ["Pokémon", "TV/60572", "rOuGm07PxBhEsK9TaGPRQVJQm1X"],
+    ["Adventure Time", "TV/15260", "qk3eQ8jW4opJ48gFWYUXWaMT4l"],                   //for brooke
+    ["Bob's Burgers", "TV/32726", "yVz5foNr6nCfathj0igg8RLVGfn"],                   //for brooke
 ];
 
 let unusedTitles = recommendedTitles;
