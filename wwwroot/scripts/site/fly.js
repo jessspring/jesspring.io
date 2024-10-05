@@ -38,6 +38,8 @@ let mouse;
 let swatted = 0;
 
 function flyInvasion() {
+    bugButton.removeEventListener("click", flyInvasion);
+
     bugButton.style.opacity = 0;
     previousTimestamp = document.timeline.currentTime;
 
