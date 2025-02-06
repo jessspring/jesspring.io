@@ -673,3 +673,14 @@ a.button {
 .p-b-10 {
     padding-bottom: 7.5px;
 }
+
+.environment-image-link {
+    box-shadow: rgb(63, 63, 63) 10px 10px;
+    margin-right: 10px;
+}
+
+.environment-image {
+    max-width: 100%;
+    image-rendering: initial;
+    height: 100%;
+}
