@@ -1,6 +1,3 @@
-const movieUrl = "https://api.themoviedb.org/3/search/movie?api_key=710eae815b269abfbd23d6ca65580e55&query=";
-const tvUrl = "https://api.themoviedb.org/3/search/tv?api_key=710eae815b269abfbd23d6ca65580e55&query="
-
 const titleList = document.getElementById("title-list");
 const searchForm = document.getElementById("search-form");
 
@@ -57,15 +54,12 @@ async function getData() {
 
     //Clear title list and populate with new titles
     titleList.innerHTML = "";
-    if (response.url.startsWith(movieUrl)) {
-        for (const result of json.results) {
+
+    for (const result of json.results) {
+        if (result.media_type == "movie")
             titleList.appendChild(createMovieElement(result));
-        }
-    }
-    else if (response.url.startsWith(tvUrl)) {
-        for (const result of json.results) {
+        else if (result.media_type == "tv")
             titleList.appendChild(createTvElement(result));
-        }
     }
 }
 
@@ -74,45 +68,3 @@ searchForm.addEventListener("submit", (event) => {
 
     getData();
 });
-
-const moviesButton = document.getElementById("movies-button");
-const tvButton = document.getElementById("tv-button");
-const searchTypeInput = document.getElementById("search-type");
-
-//Toggle form URL and buttons
-function setSearchType(searchType) {
-    if (searchType == "movies") {
-        moviesButton.classList.toggle("button-pressed", true);
-        tvButton.classList.toggle("button-pressed", false);
-        searchForm.action = movieUrl;
-    }
-    else {
-        moviesButton.classList.toggle("button-pressed", false);
-        tvButton.classList.toggle("button-pressed", true);
-        searchForm.action = tvUrl;
-    }
-
-    searchTypeInput.value = searchType;
-}
-
-moviesButton.addEventListener("click", () => setSearchType("movies"));
-tvButton.addEventListener("click", () => setSearchType("tv"));
-
-//Initialise form URL and buttons on page load
-window.addEventListener("load", () => setTimeout(() => {
-    if (searchTypeInput.value == null || searchTypeInput.value == "") {
-        moviesButton.classList.toggle("button-pressed", true);
-        searchTypeInput.value = "movies";
-        searchForm.action = movieUrl;
-    }
-    else if (searchTypeInput.value == "movies") {
-        moviesButton.classList.toggle("button-pressed", true);
-        tvButton.classList.toggle("button-pressed", false);
-        searchForm.action = movieUrl;
-    }
-    else {
-        moviesButton.classList.toggle("button-pressed", false);
-        tvButton.classList.toggle("button-pressed", true);
-        searchForm.action = tvUrl;
-    }
-}, 0));
