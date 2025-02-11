@@ -25,6 +25,8 @@ function createGenericTitleElement(result, date, name, url) {
         ? `https://image.tmdb.org/t/p/w200${result.poster_path}`
         : "/images/question_mark.png";
 
+    const overview = result.overview == null || result.overview == "" ? "" :
+        `<div class="card yellow-card title-description">${result.overview}</div>`;
     const titleHtml =
         `<div class="card title-card">
                 <img class="title-image" src="${posterPath}" />
@@ -36,7 +38,7 @@ function createGenericTitleElement(result, date, name, url) {
                         </div>
                         <a class="button" href="${url}">Watch</a>
                     </div>
-                    <div class="card yellow-card title-description">${result.overview}</div>      
+                    ${overview}
                 </div>
             </div>`;
 
