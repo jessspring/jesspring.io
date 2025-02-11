@@ -13,8 +13,9 @@ body {
     image-rendering: pixelated;
 }
 
-.scale3 {
-    zoom: 300%;
+.header-image {
+    width: 645px;
+    height: 72px;
 }
 
 .header {
@@ -22,7 +23,8 @@ body {
     background-image: url("/images/top_dither.png");
     background-repeat: repeat-x;
     background-position: bottom;
-    padding: 10px 0;
+    background-size: 6px 15px;
+    padding: 30px 0;
 }
 
 .footer {
@@ -30,8 +32,9 @@ body {
     background-image: url("/images/bottom_dither.png");
     background-repeat: repeat-x;
     background-position: top;
+    background-size: 6px 15px;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .main {
@@ -48,8 +51,13 @@ body {
 }
 
 .icon {
-    margin: 0 2px;
+    margin: 0 6px;
 }
+
+    .icon > img {
+        width: 48px;
+        height: 48px;
+    }
 
 .container {
     display: flex;
@@ -84,10 +92,10 @@ body {
     font-family: 'PixelCraft', sans-serif;
     position: absolute;
     color: rgb(0, 255, 0);
-    text-shadow: 1px 1px rgb(0, 63, 0);
+    text-shadow: 3px 3px rgb(0, 63, 0);
     line-height: 0;
-    font-size: 0.75em;
-    translate: 105px 15px;
+    font-size: 2.25em;
+    translate: 315px 45px;
     rotate: -20deg;
     white-space: nowrap;
     animation-name: splash-text;
@@ -528,14 +536,14 @@ a.button {
 }
 
 .cog-link {
-    height: 16px;
-    width: 16px;
-    margin-left: 5px;
+    height: 48px;
+    width: 48px;
+    margin-left: 15px;
 }
 
 .cog-image {
-    width: 16px;
-    height: 16px;
+    width: 48px;
+    height: 48px;
 }
 
     .cog-image:hover {
@@ -657,7 +665,6 @@ a.button {
     transform: rotate(-90deg);
     width: 32px;
     height: 32px;
-    zoom: calc(1/3);
     align-self: flex-end;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -670,8 +677,8 @@ a.button {
     z-index: 400;
 }
 
-.p-b-10 {
-    padding-bottom: 7.5px;
+.p-b-20 {
+    padding-bottom: 20px;
 }
 
 .environment-image-link {
