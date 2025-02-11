@@ -26,9 +26,9 @@
 
     <canvas id="fly-canvas" class="fly-overlay unselectable"></canvas>
 
-    <header class="header scale3 flex justify-content-center">
+    <header class="header flex justify-content-center">
         <a href="/">
-            <img class="center" src="/images/title.png">
+            <img class="center header-image" src="/images/title.png">
         </a>
         <span id="splash-text" class="splash-text unselectable display-none"></span>
         <script src="/scripts/site/splash.js" asp-append-version="true"></script>
@@ -42,12 +42,12 @@
         </content>
     </main>
 
-    <footer class="footer scale3 flex jc-space-between">
+    <footer class="footer flex jc-space-between">
         <a class="cog-link" href="@Url.Action(nameof(HomeController.Settings), HomeController.Name)">
             <img class="cog-image" src="/images/cog.png">
         </a>
 
-        <div class="flex justify-content-center p-b-10">
+        <div class="flex justify-content-center p-b-20">
             <a class="icon" href="https://www.instagram.com/jesssspring/" target="_blank" id="footer-link-instagram">
                 <img src="/images/instagram.png">
             </a>
