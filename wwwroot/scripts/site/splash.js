@@ -39,8 +39,8 @@ function setSplashWidth() {
     splashElement.classList.remove("display-none");
 
     //Shrink the text if it would go off the screen
-    if (splashElement.clientWidth > 125) {
-        const scale = 125 / splashElement.clientWidth;
+    if (splashElement.clientWidth > 350) {
+        const scale = 350 / splashElement.clientWidth;
         splashElement.style.transform = `scale(${scale})`;
     }
 }
