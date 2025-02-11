@@ -23,7 +23,7 @@ function createTvElement(result) {
 function createGenericTitleElement(result, date, name, url) {
     const posterPath = result.poster_path != null
         ? `https://image.tmdb.org/t/p/w200${result.poster_path}`
-        : "/images/question_mark.png";
+        : "/images/question_mark3.png";
 
     const overview = result.overview == null || result.overview == "" ? "" :
         `<div class="card yellow-card title-description">${result.overview}</div>`;
@@ -54,10 +54,13 @@ async function getData() {
     const response = await fetch(searchForm.action + formData.get("search"));
     const json = await response.json();
 
+    //Put titles with no art at the bottom
+    const results = json.results.filter(x => x.poster_path != null).concat(json.results.filter(x => x.poster_path == null));
+
     //Clear title list and populate with new titles
     titleList.innerHTML = "";
 
-    for (const result of json.results) {
+    for (const result of results) {
         if (result.media_type == "movie")
             titleList.appendChild(createMovieElement(result));
         else if (result.media_type == "tv")
