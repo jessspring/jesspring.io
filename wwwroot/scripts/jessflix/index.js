@@ -54,12 +54,13 @@ async function getData() {
     const response = await fetch(searchForm.action + formData.get("search"));
     const json = await response.json();
 
-    //Put titles with no art at the bottom
-    const results = json.results.filter(x => x.poster_path != null).concat(json.results.filter(x => x.poster_path == null));
+    //Sort titles by popularity score * number of votes
+    //Then put titles with no art at the bottom
+    let results = json.results.sort((a, b) => b.popularity * b.vote_count - a.popularity * a.vote_count);
+    results = results.filter(x => x.poster_path != null).concat(results.filter(x => x.poster_path == null));
 
     //Clear title list and populate with new titles
     titleList.innerHTML = "";
-
     for (const result of results) {
         if (result.media_type == "movie")
             titleList.appendChild(createMovieElement(result));
