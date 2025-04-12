@@ -115,7 +115,7 @@ body {
 }
 
 .display-none {
-    display: none;
+    display: none !important;
 }
 
 @keyframes rainbow {
@@ -202,8 +202,8 @@ body {
 }
 
 .red-card {
-    background-color: rgb(204, 0, 0);
-    box-shadow: rgb(0, 63, 63) 10px 10px;
+    background-color: rgb(191, 0, 0);
+    box-shadow: rgb(63, 0, 0) 10px 10px;
 }
 
 .white-card {
@@ -412,10 +412,6 @@ a.button {
 .tv-selects {
     width: 50%;
     margin: 10px 0 0 10px;
-}
-
-.stream-card {
-    margin-bottom: 10px;
 }
 
 .w-50 {
@@ -692,4 +688,17 @@ a.button {
     image-rendering: initial;
     height: 146.25px;
     width: 390px;
+}
+
+.white-text {
+    color: white;
+}
+
+.adblock-card {
+    height: 45px;
+}
+
+.adblock-button {
+    width: 140px;
+    align-self: flex-end;
 }

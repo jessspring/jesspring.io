@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Jessflix";
+    ViewData["ContentClass"] = "content-large";
+    Layout = "_Layout";
+}
+
+<div class="flex fd-column w-100 align-items-center gap-20">
+    <div id="adblock-container" class="card red-card adblock-card flex gap-20 display-none">
+        <span class="white-text">Please use an <a href="https://ublockorigin.com/" target="_blank">adblocker</a> for the best viewing experience!</span>
+        <button id="adblock-button" class="button adblock-button">ok, ty jess &lt;3</button>
+    </div>
+
+    <script src="/scripts/jessflix/adblock.js" asp-append-version="true"></script>
+
+    @RenderBody()
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

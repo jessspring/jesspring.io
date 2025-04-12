@@ -1,26 +1,24 @@
-﻿@using jesspring.io.Controllers
-@model int
+﻿@model int
 @{
-    ViewData["Title"] = "Jessflix";
-    ViewData["ContentClass"] = "content-large";
+    Layout = "WatchBase";
 }
 
-<div class="flex fd-column w-100 align-items-center">
-    <div class="card stream-card">
-        <iframe src="https://vidsrc.xyz/embed/movie?tmdb=@Model" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
-    </div>
+<div class="card">
+    <iframe src="https://vidsrc.xyz/embed/movie?tmdb=@Model" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
+</div>
 
-    <div class="card title-card m-top-10">
-        <img class="title-image" id="title-image" />
-        <div class="flex fd-column w-100">
-            <div class="card blue-card title-info">
-                <div>
-                    <div class="pixel-font-bold title-name" id="title-name"></div>
-                    <div id="title-date"></div>
-                </div>
+<div class="card title-card">
+    <img class="title-image" id="title-image" />
+
+    <div class="flex fd-column w-100">
+        <div class="card blue-card title-info">
+            <div>
+                <div class="pixel-font-bold title-name" id="title-name"></div>
+                <div id="title-date"></div>
             </div>
-            <div class="card yellow-card title-description" id="title-description"></div>
         </div>
+
+        <div class="card yellow-card title-description" id="title-description"></div>
     </div>
 </div>
 
