@@ -1,7 +1,7 @@
 {
     const linkNames = [
         "instagram",
-        "discord",
+        //"discord",
         "spotify",
         "github",
     ];

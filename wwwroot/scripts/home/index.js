@@ -29,7 +29,6 @@ unlockedAchievements.forEach(image => {
 const recommendedTitles = [
     ["Dominion", "Movie/472796", "sipSZ6Gcuz6O7gzQbLdskpwjh7V"],                    //for the animals
     ["Interstellar", "Movie/157336", "gEU2QniE6E77NI6lCU6MxlNBvIx"],                //for smyaly
-    ["Pride", "Movie/234200", "mrITqHNw0XzT7egAPByDuiE3QZf"],                       //for psymple
     ["The Road", "Movie/20766", "qLaXnLzqleBWQtjvZ6JGVSaKoC3"],
     ["Breaking Bad", "TV/1396", "ztkUQFLlC19CCMYHW9o1zWhJRNq"],
     ["Titanic", "Movie/597", "9xjZS2rlVxm8SFx8kPC3aIGCOYQ"],                        //for vulcab
