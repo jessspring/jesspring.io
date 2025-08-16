@@ -271,6 +271,7 @@ body {
     box-shadow: rgb(63, 63, 63) 10px 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    image-rendering: initial;
 }
 
 .title-info {

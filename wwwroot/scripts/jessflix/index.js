@@ -22,7 +22,7 @@ function createTvElement(result) {
 //Base title element template
 function createGenericTitleElement(result, date, name, url) {
     const posterPath = result.poster_path != null
-        ? `https://image.tmdb.org/t/p/w200${result.poster_path}`
+        ? `https://image.tmdb.org/t/p/w400${result.poster_path}`
         : "/images/question_mark3.png";
 
     const overview = result.overview == null || result.overview == "" ? "" :

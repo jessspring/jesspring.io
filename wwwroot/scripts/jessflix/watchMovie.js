@@ -5,7 +5,7 @@ fetch(url.replace("{movieId}", window.data.movieId))
     .then(json => {
         //Set movie image and info on load
         const posterPath = json.poster_path != null
-            ? `https://image.tmdb.org/t/p/w200${json.poster_path}`
+            ? `https://image.tmdb.org/t/p/w400${json.poster_path}`
             : "/images/question_mark.png";
         document.getElementById("title-image").setAttribute("src", posterPath);
 
