@@ -60,13 +60,13 @@ fetch(tvUrl.replace("{tvId}", window.data.tvId))
             seasonSelect.appendChild(optionElement);
         }
 
-        //Load episodes for initial season
-        loadEpisodes();
+        setSeasonFromQuery();
+        loadEpisodes(true);
     });
 
-seasonSelect.addEventListener("change", loadEpisodes);
+seasonSelect.addEventListener("change", () => loadEpisodes());
 
-function loadEpisodes() {
+function loadEpisodes(readQueryParam = false) {
     fetch(seasonUrl.replace("{tvId}", window.data.tvId).replace("{seasonNumber}", seasonSelect.value))
         .then(x => x.json())
         .then(json => {
@@ -89,12 +89,20 @@ function loadEpisodes() {
                 episodeSelect.appendChild(optionElement);
             }
 
+            if (readQueryParam)
+                setEpisodeFromQuery();
+            else
+                updateQuery();
+
             //Set links for stream embed and new tab button for the initial episode
             updateLinks();
         });
 }
 
-episodeSelect.addEventListener("change", updateLinks);
+episodeSelect.addEventListener("change", () => {
+    updateLinks();
+    updateQuery();
+});
 
 function updateLinks() {
     const newLink = streamUrl
@@ -104,4 +112,32 @@ function updateLinks() {
 
     streamEmbed.src = newLink;
     newTabLink.href = newLink;
+}
+
+function setSeasonFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    const season = params.get("season");
+
+    if (season == null)
+        return;
+
+    seasonSelect.value = season;
+}
+
+function setEpisodeFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    const season = params.get("season");
+    const episode = params.get("episode");
+
+    if (season == null || episode == null)
+        return;
+
+    episodeSelect.value = episode;
+}
+
+function updateQuery() {
+    const url = new URL(window.location.href);
+    url.searchParams.set("season", seasonSelect.value);
+    url.searchParams.set("episode", episodeSelect.value);
+    window.history.pushState(null, "", url.toString());
 }
