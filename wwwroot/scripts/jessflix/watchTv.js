@@ -4,6 +4,7 @@ const streamUrl = "https://vidsrc.xyz/embed/tv?tmdb={tvId}&season={seasonNumber}
 const seasonSelect = document.getElementById("season-select");
 const episodeSelect = document.getElementById("episode-select");
 const streamEmbed = document.getElementById("stream-embed");
+const newTabLink = document.getElementById("new-tab-link");
 
 fetch(tvUrl.replace("{tvId}", window.data.tvId))
     .then(x => x.json())
@@ -88,13 +89,19 @@ function loadEpisodes() {
                 episodeSelect.appendChild(optionElement);
             }
 
-            //Set stream link for initial episode
-            setStreamEmbed();
+            //Set links for stream embed and new tab button for the initial episode
+            updateLinks();
         });
 }
 
-episodeSelect.addEventListener("change", setStreamEmbed);
+episodeSelect.addEventListener("change", updateLinks);
 
-function setStreamEmbed() {
-    streamEmbed.src = streamUrl.replace("{tvId}", window.data.tvId).replace("{seasonNumber}", seasonSelect.value).replace("{episodeNumber}", episodeSelect.value);
+function updateLinks() {
+    const newLink = streamUrl
+        .replace("{tvId}", window.data.tvId)
+        .replace("{seasonNumber}", seasonSelect.value)
+        .replace("{episodeNumber}", episodeSelect.value);
+
+    streamEmbed.src = newLink;
+    newTabLink.href = newLink;
 }
