@@ -2,7 +2,7 @@
     const linkNames = [
         "instagram",
         //"discord",
-        "spotify",
+        //"spotify",
         "github",
     ];
 
