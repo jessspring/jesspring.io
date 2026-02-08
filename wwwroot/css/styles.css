@@ -703,3 +703,12 @@ a.button {
     width: 140px;
     align-self: flex-end;
 }
+
+.dice-button {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 16px;
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ const seasonSelect = document.getElementById("season-select");
 const episodeSelect = document.getElementById("episode-select");
 const streamEmbed = document.getElementById("stream-embed");
 const newTabLink = document.getElementById("new-tab-link");
+const diceButton = document.getElementById("dice-button");
 
 fetch(tvUrl.replace("{tvId}", window.data.tvId))
     .then(x => x.json())
@@ -104,6 +105,48 @@ episodeSelect.addEventListener("change", () => {
     updateQuery();
 });
 
+diceButton.addEventListener("click", () => {
+    fetch(tvUrl.replace("{tvId}", window.data.tvId))
+        .then(x => x.json())
+        .then(json => {
+            //Remove specials if it exists and then pick a random season
+            let seasons = json.seasons;
+            if (seasons[0].season_number == 0)
+                seasons = seasons.slice(1);
+
+            const season = seasons[Math.floor(Math.random() * seasons.length)];
+            seasonSelect.value = season.season_number;
+
+            fetch(seasonUrl.replace("{tvId}", window.data.tvId).replace("{seasonNumber}", season.season_number))
+                .then(x => x.json())
+                .then(json => {
+                    //Pick a random episode and update stream
+                    const episodes = json.episodes;
+                    const episode = episodes[Math.floor(Math.random() * episodes.length)];
+
+                    updateQuery(season.season_number, episode.episode_number);
+                    loadEpisodes(true);
+                });
+        });
+});
+
+let diceNumber = 1;
+let interval;
+diceButton.addEventListener("mouseover", () => {
+    interval = setInterval(() => {
+        diceNumber++;
+
+        if (diceNumber > 3)
+            diceNumber = 1;
+
+        diceButton.src = `/images/dice/d${diceNumber}.png`;
+    }, 250);
+});
+
+diceButton.addEventListener("mouseout", () => {
+    clearInterval(interval);
+});
+
 function updateLinks() {
     const newLink = streamUrl
         .replace("{tvId}", window.data.tvId)
@@ -135,9 +178,9 @@ function setEpisodeFromQuery() {
     episodeSelect.value = episode;
 }
 
-function updateQuery() {
+function updateQuery(season = null, episode = null) {
     const url = new URL(window.location.href);
-    url.searchParams.set("season", seasonSelect.value);
-    url.searchParams.set("episode", episodeSelect.value);
+    url.searchParams.set("season", season == null ? seasonSelect.value : season);
+    url.searchParams.set("episode", episode == null ? episodeSelect.value : episode);
     window.history.pushState(null, "", url.toString());
 }
