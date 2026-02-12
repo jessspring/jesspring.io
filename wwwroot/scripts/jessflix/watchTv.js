@@ -1,11 +1,37 @@
 const tvUrl = "https://api.themoviedb.org/3/tv/{tvId}?api_key=710eae815b269abfbd23d6ca65580e55";
 const seasonUrl = "https://api.themoviedb.org/3/tv/{tvId}/season/{seasonNumber}?api_key=710eae815b269abfbd23d6ca65580e55";
-const streamUrl = "https://vidsrc.xyz/embed/tv?tmdb={tvId}&season={seasonNumber}&episode={episodeNumber}&ds_lang=en";
+const streamUrl = "https://vidsrc.xyz/embed/tv?tmdb={tvId}&season={seasonNumber}&episode={episodeNumber}&ds_lang=en&autonext={autoplay}";
 const seasonSelect = document.getElementById("season-select");
 const episodeSelect = document.getElementById("episode-select");
 const streamEmbed = document.getElementById("stream-embed");
 const newTabLink = document.getElementById("new-tab-link");
 const diceButton = document.getElementById("dice-button");
+const autoplayButton = document.getElementById("autoplay-button");
+
+let autoplay = window.localStorage.getItem("autoplay");
+if (autoplay == null) {
+    autoplay = 0;
+    window.localStorage.setItem("autoplay", 0);
+}
+setAutoplayText();
+setAutoplayClasses();
+
+autoplayButton.addEventListener("click", () => {
+    autoplay = autoplay == 1 ? 0 : 1;
+    window.localStorage.setItem("autoplay", autoplay);
+    updateLinks();
+    setAutoplayClasses();
+    setAutoplayText();
+});
+
+function setAutoplayText() {
+    autoplayButton.innerHTML = `Autoplay: ${autoplay == 1 ? "ENGAGED" : "disabled"}`;
+}
+
+function setAutoplayClasses() {
+    autoplayButton.classList.toggle("button-blue", autoplay == 0);
+    autoplayButton.classList.toggle("button-yellow", autoplay == 1);
+}
 
 fetch(tvUrl.replace("{tvId}", window.data.tvId))
     .then(x => x.json())
@@ -151,7 +177,8 @@ function updateLinks() {
     const newLink = streamUrl
         .replace("{tvId}", window.data.tvId)
         .replace("{seasonNumber}", seasonSelect.value)
-        .replace("{episodeNumber}", episodeSelect.value);
+        .replace("{episodeNumber}", episodeSelect.value)
+        .replace("{autoplay}", autoplay);
 
     streamEmbed.src = newLink;
     newTabLink.href = newLink;
