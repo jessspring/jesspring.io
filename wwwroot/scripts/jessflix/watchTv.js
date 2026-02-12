@@ -1,6 +1,6 @@
 const tvUrl = "https://api.themoviedb.org/3/tv/{tvId}?api_key=710eae815b269abfbd23d6ca65580e55";
 const seasonUrl = "https://api.themoviedb.org/3/tv/{tvId}/season/{seasonNumber}?api_key=710eae815b269abfbd23d6ca65580e55";
-const streamUrl = "https://vidsrc.xyz/embed/tv?tmdb={tvId}&season={seasonNumber}&episode={episodeNumber}"
+const streamUrl = "https://vidsrc.xyz/embed/tv?tmdb={tvId}&season={seasonNumber}&episode={episodeNumber}&ds_lang=en";
 const seasonSelect = document.getElementById("season-select");
 const episodeSelect = document.getElementById("episode-select");
 const streamEmbed = document.getElementById("stream-embed");
