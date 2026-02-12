@@ -1,16 +1,17 @@
 ﻿@model int
 @{
     Layout = "WatchBase";
+    var streamUrl = $"https://vidsrc.xyz/embed/movie?tmdb={Model}&ds_lang=en";
 }
 
 <div class="card">
-    <iframe src="https://vidsrc.xyz/embed/movie?tmdb=@Model" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
+    <iframe src="@streamUrl" style="width: 960px; height: 560px;" frameborder="0" referrerpolicy="origin" allowfullscreen></iframe>
 </div>
 
 <div class="card title-card">
     <div class="flex fd-column gap-10">
         <img class="title-image" id="title-image" />
-        <a href="https://vidsrc.xyz/embed/movie?tmdb=@Model" class="button button-fit" target="_blank">Open in new tab ></a>
+        <a href="@streamUrl" class="button button-fit" target="_blank">Open in new tab ></a>
     </div>
 
     <div class="flex fd-column w-100">
