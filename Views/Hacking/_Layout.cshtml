@@ -1,0 +1,44 @@
+﻿@using jesspring.io.Controllers
+
+<html class="fallout">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHB81EPTK6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EHB81EPTK6');
+    </script>
+
+    <title>@ViewData["Title"]</title>
+
+    <script src="/scripts/site/achievements.js" asp-append-version="true"></script>
+    <script src="/scripts/site/meow.js" asp-append-version="true"></script>
+
+    <link href="https://fonts.cdnfonts.com/css/pixelcraft-2" rel="stylesheet" fetchpriority="high">
+    <link rel="stylesheet" href="/css/styles.css" asp-append-version="true">
+    <link id="cursor-css" rel="stylesheet" href="/css/cursors/default.css" asp-append-version="true">
+    <script src="/scripts/site/cursor.js" asp-append-version="true"></script>
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" asp-append-version="true">
+</head>
+
+<body>
+    @RenderBody()
+
+    <div id="achievement-popup-container" class="achievement-popup-container card flex fd-row unselectable">
+        <img id="achievement-popup-image" class="achievement-popup-image" />
+
+        <div class="flex fd-column">
+            <div id="achievement-popup-name" class="font-size-2 home-card-title-yellow pixel-font-bold achievement-title"></div>
+            <div class="font-size-2 title-name">Achievement unlocked!</div>
+        </div>
+    </div>
+</body>
+
+@RenderSection("Scripts", false)
+
+</html>

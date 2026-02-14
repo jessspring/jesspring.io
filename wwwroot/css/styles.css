@@ -712,3 +712,13 @@ a.button {
     margin-top: 16px;
     cursor: pointer;
 }
+
+.hacking-canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.fallout {
+    background-color: rgb(0, 0, 0);
+}
