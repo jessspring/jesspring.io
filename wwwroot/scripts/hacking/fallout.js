@@ -158,7 +158,7 @@ function update(timestamp) {
     drawLog();
     drawMouse();
 
-    handleLink();
+    handleLink(attempts == 0 ? -1 : 0);
 
     requestAnimationFrame(update);
 
@@ -171,17 +171,20 @@ function update(timestamp) {
 let time = 0;
 function aaaaaaaaaa() {
     time += delta;
-    context.translate(Math.random() * 4 * time, Math.random() * 2 * time);
+    context.translate(Math.random() * 4 * time - 2, Math.random() * 2 * time - 1);
 }
 
-function handleLink() {
-    if (mouse.x < 0 ||
-        mouse.x > 10 * xSpacing ||
+function handleLink(offset = 0) {
+    if (mouse.x < 0 + offset * xSpacing ||
+        mouse.x > 9 * xSpacing ||
         mouse.y < 0 ||
         mouse.y > 1 * ySpacing)
         return;
 
-    drawText("JESSPRING", 0, 0, theme.special, theme.normal);
+    if (attempts > 0)
+        drawText("JESSPRING", 0, 0, theme.special, theme.normal);
+    else
+        drawText("BLOODGRASS", -1, 0, theme.special, theme.normal);
 
     if (!mouse.isClicked())
         return;
@@ -220,6 +223,7 @@ function handleBracketInput(mouseIndex) {
     addToLog("Attempt added");
 
     attempts++;
+    theme = theme1;
     usedBracketIndices.push(mouseIndex);
 }
 
@@ -296,10 +300,15 @@ function drawText(text, x, y, textColour = theme.normal, backgroundColour = them
 }
 
 function drawStaticText() {
-    drawText("JESSPRING INDUSTRIES TERMLINK PROTOCOL", 0, 0);
+    if (attempts > 0)
+        drawText("JESSPRING INDUSTRIES TERMLINK PROTOCOL", 0, 0);
+    else
+        drawText("BLOODGRASS INDUSTRIES TERMLINK PROTOCOL", -1, 0);
 
     if (attempts == 1)
         drawText("!!! WARNING: LOCKOUT IMMINENT !!!", 0, 1);
+    else if (attempts == 0)
+        drawText("!!! OH NO !!!", 0, 1);
     else
         drawText("ENTER PASSWORD NOW", 0, 1);
 
