@@ -1,8 +1,24 @@
-﻿const colours = {
-    black: "#000000",
-    magenta: "#ff00ff",
-    yellow: "#ffff00"
+﻿const htmlElement = document.getElementsByTagName("html")[0];
+
+const theme1 = {
+    background: "#000000",
+    normal: "#ff00ff",
+    special: "#ffff00"
 };
+
+const theme2 = {
+    background: "#000000",
+    normal: "#ff0000",
+    special: "#ffffff"
+};
+
+const theme3 = {
+    background: "#ff0000",
+    normal: "#ffffff",
+    special: "#000000"
+};
+
+let theme = theme1;
 
 const ySpacing = 24;
 const xSpacing = 14;
@@ -131,6 +147,10 @@ function update(timestamp) {
 
     context.resetTransform();
     context.translate(offsetX, offsetY);
+
+    if (attempts == 0)
+        aaaaaaaaaa();
+
     mouse.update();
 
     drawStaticText();
@@ -148,6 +168,12 @@ function update(timestamp) {
     handleInput();
 }
 
+let time = 0;
+function aaaaaaaaaa() {
+    time += delta;
+    context.translate(Math.random() * 4 * time, Math.random() * 2 * time);
+}
+
 function handleLink() {
     if (mouse.x < 0 ||
         mouse.x > 10 * xSpacing ||
@@ -155,7 +181,7 @@ function handleLink() {
         mouse.y > 1 * ySpacing)
         return;
 
-    drawText("JESSPRING", 0, 0, colours.yellow, colours.magenta);
+    drawText("JESSPRING", 0, 0, theme.special, theme.normal);
 
     if (!mouse.isClicked())
         return;
@@ -206,17 +232,19 @@ function handleLetterInput(mouseIndex) {
     addToLog(word);
 
     if (word == password) {
-        addToLog("Exact match!");
-        addToLog("Please wait");
-        addToLog("while system");
-        addToLog("is accessed.");
+        theme = theme1;
+        addToLog("Exact match!", theme => theme.special);
+        addToLog("Please wait", theme => theme.special);
+        addToLog("while system", theme => theme.special);
+        addToLog("is accessed.", theme => theme.special);
 
+        htmlElement.classList.toggle("fallout-3", true);
         allowUpdate = false;
 
         setTimeout(() => window.location.href = "https://www.google.com", 3000);
+
+        return;
     }
-    else if (attempts == 1)
-        window.location.href = "https://jesspring.io";
     else {
         addToLog("Entry denied");
         attempts--;
@@ -228,24 +256,39 @@ function handleLetterInput(mouseIndex) {
 
         addToLog(`${matchingLetters}/7 correct.`);
     }
+
+    if (attempts > 1)
+        theme = theme1;
+    else if (attempts == 1) {
+        theme = theme2;
+        addToLog(" BE CAREFUL.");
+    }
+    else if (attempts == 0) {
+        theme = theme3;
+        htmlElement.classList.toggle("fallout-2", true);
+        allowUpdate = false;
+        addToLog("      OH NO.");
+
+        setTimeout(() => window.location.href = "https://jesspring.io", 3000);
+    }
 }
 
-function addToLog(string) {
-    log = [string].concat(log);
+function addToLog(string, colourFunction = theme => theme.normal) {
+    log = [[string, colourFunction]].concat(log);
     if (log.length > 15)
         log = log.slice(0, 15);
 }
 
-function drawCharacter(char, x, y, textColour = colours.magenta, backgroundColour = colours.black) {
+function drawCharacter(char, x, y, textColour = theme.normal, backgroundColour = theme.background) {
     context.fillStyle = backgroundColour;
-    context.fillRect(x * xSpacing, y * ySpacing, xSpacing, ySpacing);
+    context.fillRect(x * xSpacing - 2, y * ySpacing - 2, xSpacing + 2, ySpacing + 1);
     context.font = font;
     context.textBaseline = "top";
     context.fillStyle = textColour;
     context.fillText(char, x * xSpacing, y * ySpacing);
 }
 
-function drawText(text, x, y, textColour = colours.magenta, backgroundColour = colours.black) {
+function drawText(text, x, y, textColour = theme.normal, backgroundColour = theme.background) {
     [...text].forEach(c => {
         drawCharacter(c, x, y, textColour, backgroundColour);
         x++;
@@ -297,11 +340,11 @@ function drawMouse() {
     const range = getMousedRange(mouseIndex);
 
     for (let i = range[0]; i <= range[1]; i++) {
-        drawCharacter(puzzleText[i], 41 + (i - range[0]), 21, colours.magenta, colours.black);
+        drawCharacter(puzzleText[i], 41 + (i - range[0]), 21, theme.normal, theme.background);
         drawCharacter(puzzleText[i],
             7 + (i % 12) + (Math.floor(i / (12 * 17)) * 20),
             5 + Math.floor(i / 12) - (Math.floor(i / (12 * 17)) * 17),
-            colours.black, colours.yellow);
+            theme.background, theme.special);
     }
 }
 
@@ -371,8 +414,10 @@ function updateLines() {
 }
 
 function drawLog() {
-    for (let i = 0; i < log.length; i++)
-        drawText(">" + log[i], 40, 19 - i);
+    for (let i = 0; i < log.length; i++) {
+        drawText(">", 40, 19 - i);
+        drawText(log[i][0], 41, 19 - i, log[i][1](theme));
+    }
 
     drawCharacter(">", 40, 21);
 }

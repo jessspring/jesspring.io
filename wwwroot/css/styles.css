@@ -722,3 +722,7 @@ a.button {
 .fallout {
     background-color: rgb(0, 0, 0);
 }
+
+.fallout-2 {
+    background-color: rgb(255, 0, 0) !important;
+}
