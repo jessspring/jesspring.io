@@ -27,8 +27,8 @@ class Mouse {
 
     constructor() {
         window.addEventListener("mousemove", event => {
-            this.x = event.clientX;
-            this.y = event.clientY;
+            this.x = event.clientX - offsetX;
+            this.y = event.clientY - offsetY;
         });
 
         window.addEventListener("mousedown", event => {
@@ -64,8 +64,9 @@ let previousTimestamp = 0;
 let delta = 0;
 const mouse = new Mouse();
 
-
 //53 x 22
+const terminalWidth = 53;
+const terminalHeight = 22;
 let attempts = 4;
 const hexStart = 62704;
 const hexStep = 62716 - hexStart;
@@ -117,12 +118,19 @@ function run() {
     requestAnimationFrame(update);
 }
 
+let offsetX = 0;
+let offsetY = 0;
 function update(timestamp) {
     delta = (timestamp - previousTimestamp) / 1000;
     previousTimestamp = timestamp;
 
+    offsetX = (window.innerWidth / 2) - ((terminalWidth / 2) * xSpacing);
+    offsetY = (window.innerHeight / 2) - ((terminalHeight / 2) * ySpacing);
+
     context.clearRect(-Number.MAX_SAFE_INTEGER / 2, -Number.MAX_SAFE_INTEGER / 2, Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
 
+    context.resetTransform();
+    context.translate(offsetX, offsetY);
     mouse.update();
 
     drawStaticText();
@@ -141,9 +149,9 @@ function update(timestamp) {
 }
 
 function handleLink() {
-    if (mouse.x < 1 ||
+    if (mouse.x < 0 ||
         mouse.x > 10 * xSpacing ||
-        mouse.y < 1 ||
+        mouse.y < 0 ||
         mouse.y > 1 * ySpacing)
         return;
 
