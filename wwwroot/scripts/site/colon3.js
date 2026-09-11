@@ -18,6 +18,8 @@ function colon3Text(root = document.body) {
 }
 
 if (location.port === "44344") {
+    window.addEventListener("DOMContentLoaded", () => unlockAchievement("colon3"));
+
     colon3Text();
 
     new MutationObserver(mutations => {

@@ -6,6 +6,7 @@ const achievementIdMap = {
     watch_dominion: 5,
     playing_with_fire: 6,
     debugging: 7,
+    colon3: 8,
 };
 
 const achievementInfo = [
@@ -57,6 +58,13 @@ const achievementInfo = [
         name: "Debugging",
         description: "Swat 25 flies.",
         image: "debugging"
+    },
+    {
+        id: 8,
+        order: 8,
+        name: ":3",
+        description: "Visit port 3.",
+        image: "colon3"
     },
 ];
 
