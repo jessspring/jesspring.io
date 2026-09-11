@@ -13,11 +13,6 @@ body {
     image-rendering: pixelated;
 }
 
-.header-image {
-    width: 645px;
-    height: 72px;
-}
-
 .header {
     background-color: rgb(204, 0, 204);
     background-image: url("/images/top_dither.png");

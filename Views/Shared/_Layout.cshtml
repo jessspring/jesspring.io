@@ -41,7 +41,16 @@
 
     <header class="header flex justify-content-center">
         <a href="/">
-            <img class="center header-image" src="@(Context.Request.Host.Port == 3 ? "/images/title3.png" : "/images/title.png")">
+            @{
+                if (Context.Request.Host.Port == 3)
+                {
+                    <img class="center" width="723" height="72" src="/images/title3.png">
+                }
+                else
+                {
+                    <img class="center" width="645" height="72" src="/images/title.png">
+                }
+            }
         </a>
         <span id="splash-text" class="splash-text unselectable display-none"></span>
         <script src="/scripts/site/splash.js" asp-append-version="true"></script>
