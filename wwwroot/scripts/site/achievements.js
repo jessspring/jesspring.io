@@ -78,6 +78,7 @@ function unlockAchievement(achievement) {
     if (get == null) {
         //Use current time as it is used to order achievements by unlock time
         window.localStorage.setItem(storageKey, new Date().getTime());
+        writeCookie();
 
         //Set popup data
         const info = achievementInfo.filter(x => x.id == achievementId)[0];

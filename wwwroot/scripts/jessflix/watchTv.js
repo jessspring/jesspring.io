@@ -12,6 +12,7 @@ let autoplay = window.localStorage.getItem("autoplay");
 if (autoplay == null) {
     autoplay = 0;
     window.localStorage.setItem("autoplay", 0);
+    writeCookie();
 }
 setAutoplayText();
 setAutoplayClasses();
@@ -19,6 +20,7 @@ setAutoplayClasses();
 autoplayButton.addEventListener("click", () => {
     autoplay = autoplay == 1 ? 0 : 1;
     window.localStorage.setItem("autoplay", autoplay);
+    writeCookie();
     updateLinks();
     setAutoplayClasses();
     setAutoplayText();

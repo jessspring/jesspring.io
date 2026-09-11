@@ -17,7 +17,7 @@ function colon3Text(root = document.body) {
         replaceNode(walker.currentNode);
 }
 
-if (location.port === "44344") {
+if (location.port === "3") {
     window.addEventListener("DOMContentLoaded", () => unlockAchievement("colon3"));
 
     colon3Text();
