@@ -6,6 +6,7 @@ const achievementIdMap = {
     watch_dominion: 5,
     playing_with_fire: 6,
     debugging: 7,
+    colon3: 8,
 };
 
 const achievementInfo = [
@@ -58,6 +59,13 @@ const achievementInfo = [
         description: "Swat 25 flies.",
         image: "debugging"
     },
+    {
+        id: 8,
+        order: 8,
+        name: ":3",
+        description: "Visit port 3.",
+        image: "colon3"
+    },
 ];
 
 function unlockAchievement(achievement) {
@@ -70,6 +78,7 @@ function unlockAchievement(achievement) {
     if (get == null) {
         //Use current time as it is used to order achievements by unlock time
         window.localStorage.setItem(storageKey, new Date().getTime());
+        writeCookie();
 
         //Set popup data
         const info = achievementInfo.filter(x => x.id == achievementId)[0];

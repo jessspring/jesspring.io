@@ -7,4 +7,5 @@ if (window.localStorage.getItem("adblock-hidden") !== "true")
 adblockButton.addEventListener("click", () => {
     window.localStorage.setItem("adblock-hidden", "true");
     adblockContainer.classList.toggle("display-none", true);
+    writeCookie();
 });

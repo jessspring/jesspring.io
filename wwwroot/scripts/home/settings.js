@@ -9,6 +9,7 @@ function setMood(event) {
     moodOverlay.classList.toggle("mood-" + oldMood, false);
     moodOverlay.classList.toggle("mood-" + newMood, true);
     window.localStorage.setItem("mood", newMood);
+    writeCookie();
 }
 
 //Cursor buttons
@@ -20,6 +21,7 @@ function setCursor(event) {
     const cursorCss = document.getElementById("cursor-css");
     cursorCss.href = `/css/cursors/${cursor}.css`;
     window.localStorage.setItem("cursor", cursor);
+    writeCookie();
 }
 
 //Delete localstorage data button
@@ -38,6 +40,7 @@ deleteDataButton.addEventListener("click", () => {
     }
     else if (deleteDataButton.dataset.step == 2) {
         window.localStorage.clear();
+        writeCookie();
         window.location = window.location;
     }
 });

@@ -28,6 +28,7 @@
     function linkClicked(clickedLinkName) {
         //Set link to clicked
         window.localStorage.setItem("achievement_footer_link_clicked_" + clickedLinkName, true);
+        writeCookie();
 
         for (let linkName of linkNames) {
             if (window.localStorage.getItem("achievement_footer_link_clicked_" + linkName) !== "true")
